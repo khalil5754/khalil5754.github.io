@@ -5,7 +5,7 @@
 #### Here's what I propose: make that thing explode. 
 Daunting at first? Sure. But I'll show you how.
 
-As an example, I'll use the exploding pie chart I made for my thesis on Canadian FDI, as well as the code behind the scenes.
+As an example, I'll use the exploding pie chart I made for my thesis on Canadian FDI, as well as show the code behind the scenes.
  
 First, import all the classics and read in your csv, assigning it to a variable. This is basic for a Data Scientist, as I'm sure you well know.
 
@@ -38,7 +38,7 @@ colors = ("red", "grey", "teal", "green", "deeppink", "chocolate", "darkseagreen
 wp = {'linewidth' : 1, 'edgecolor' : "black"}
 ```
 
-Use the "explode" variable to set the levels of __"explosion"__ you would like to see for each label in your data. Don't worry, this step will make more sense soon when we call on this variable.
+Use the "explode" variable to set the levels of __"explosion"__ you would like to see for each label in your data. Don't worry, this step will make more sense soon when we call on this variable in the next code block.
 Similarly, for each label you're going to want to use a distinguishable colour. Assign a set of colours to the "colors" variable. It's harder than it looks - the more labels you have, the more difficult this step may be.
 
 You should (and likely will need to) tune the colours and exploding proportions after your chart is built. 
@@ -73,7 +73,7 @@ plt.show()
 ```
 
 I personally didn't use a legend, but feel free to if it brings value to your visualization.
-"bbox_to_anchor" dictates the location of the legend, while I used the "setp" and "textprops" functions from matplotlib (see previous code block) function to show the text in the pie chart itself.
+"bbox_to_anchor" dictates the location of the legend, while I used the "setp" and "textprops" functions from matplotlib (see previous code block) to show the text in the pie chart itself.
 
 Finally, plt.show() makes your exploding pie chart real!
 
