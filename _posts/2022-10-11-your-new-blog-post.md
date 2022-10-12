@@ -38,10 +38,10 @@ colors = ("red", "grey", "teal", "green", "deeppink", "chocolate", "darkseagreen
 wp = {'linewidth' : 1, 'edgecolor' : "black"}
 ```
 
-Using the "explode" variable to set the levels of __"explosion"__ you would like to see for each label in your data. Don't worry, this step will make more sense soon.
+Use the "explode" variable to set the levels of __"explosion"__ you would like to see for each label in your data. Don't worry, this step will make more sense soon when we call on this variable.
 Similarly, for each label you're going to want to use a distinguishable colour. Assign a set of colours to the "colors" variable. It's harder than it looks - the more labels you have, the more difficult this step may be.
 
-You should (and likely will need to) tune these colours and exploding proportions after your chart is built. 
+You should (and likely will need to) tune the colours and exploding proportions after your chart is built. 
 Now, for the meat & potatoes:
 
 ```
@@ -58,7 +58,9 @@ This is the tough part. We want to define a function which takes two arguments: 
 To do this, the lambda function calls the epie function and gives its second argument - "allvalues" - the values in the FDI column. The "absolute" variable then does the heavy-lifting and calculates individual percentages with respect to the total sum of values.
 
 The epie function then returns the result, to 1 decimal place.
-Using "fig, ax" is, as I'm sure if you're reading this you know, just to build the base of a content-less pyplot.
+
+ax.pie() also calls upon that previously mentioned explode variable (told you), as well as the colours. There are many arguments ax.pie() can take, so I'd encourage you to look into the documentation.
+Using "fig, ax" is, as I'm sure if you're reading this you know, used to build the base of a content-less pyplot.
 
 
 Now that the mathematically heavy part is over (yes it's over) you can breathe a sigh of relief because you're almost done.
