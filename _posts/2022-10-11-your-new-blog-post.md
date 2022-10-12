@@ -1,9 +1,10 @@
-# Data Science Part 1 - A Quick Tutorial For My Favourite Python Visualization: The **Exploding Pie Chart**
+# Data Science Part 1 - A Short Python Tutorial For My Favourite Visualization: The **Exploding Pie Chart**
 
-#### So, you want to make a Pie chart - but you obviously want it do be more impactful, more interesting, more *pizzaz*.
+#### So, you want to make a Pie chart - but you obviously want it to be more impactful, more interesting, more *pizzaz*.
 
 #### Here's what I propose: make that thing explode. 
 Daunting at first? Sure. But I'll show you how.
+
 As an example, I'll use the exploding pie chart I made for my thesis on Canadian FDI, as well as the code behind the scenes.
  
 First, import all the classics and read in your csv, assigning it to a variable. This is basic for a Data Scientist, as I'm sure you well know.
