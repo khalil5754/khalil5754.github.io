@@ -40,6 +40,7 @@ Canadian foreign economic policy is flexible and largely balanced. However, it i
 
 
 <img width="730" alt="image" src="https://user-images.githubusercontent.com/44441178/195230082-275cd877-da46-41ee-9e77-4f8c261ed1c2.png">
+
 ###### Highlighted Values in Red Indicate Restriction Coefficients Greater Than 0.1
 
 
@@ -47,7 +48,7 @@ Canada’s restriction coefficient is evidently high relative to its peers. The 
 
 Interesting. 
 
-Okay, this blog was never meant to be in-depth on my thesis topic, but I figured for my first post ever I should write about something I'm passionate about. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
+There are many more factors, such as taxes and foreign policy, that make Canada an attractive destination. However, this blog was never meant to be in-depth on my thesis topic, but I figured for my first post ever I should write about something I'm passionate about. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
 
 
 
