@@ -18,7 +18,7 @@ medium_profile: "https://medium.com/@khalilthestatsguy"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-theme: "minima"
+theme: "cayman"
 
 rss: rss
 
