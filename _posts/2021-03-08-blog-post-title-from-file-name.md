@@ -4,6 +4,8 @@ For my first post let's stick to a topic I know * *very* * well and dive into...
 
 This is an opportunity for me to write about a topic tangentially related to my thesis that I couldn't explore in detail in my paper (darn word limits); now I can!
 
+###### (Sources are all from the OECD)
+
 <img width="1073" alt="Screen Shot 2022-06-08 at 5 40 36 PM" src="https://user-images.githubusercontent.com/44441178/195224920-3d9c05c0-fb0a-4394-97d9-3085041ed0af.png">
 
 
@@ -24,7 +26,7 @@ Intuitively, attracting foreign multinational enterprises (FMNEs) begins with an
 
 
 
-<img width="343" alt="image" src="https://user-images.githubusercontent.com/44441178/195230123-e5bc7bb1-6ce4-4b99-aa4b-9ba2199f54f8.png">
+<img width="678" alt="image" src="https://user-images.githubusercontent.com/44441178/195230123-e5bc7bb1-6ce4-4b99-aa4b-9ba2199f54f8.png">
 
 
 
@@ -38,7 +40,7 @@ Canadian foreign economic policy is flexible and largely balanced. However, it i
 
 
 <img width="730" alt="image" src="https://user-images.githubusercontent.com/44441178/195230082-275cd877-da46-41ee-9e77-4f8c261ed1c2.png">
-
+###### Highlighted Values in Red Indicate Restriction Coefficients Greater Than 0.1
 
 
 Canada’s restriction coefficient is evidently high relative to its peers. The total is, however, certainly skewed up heavily due to Canada’s incredibly restrictive telecommunications and media industries. These are two industries that Canadian regulatory bodies consider “distinguished” Canadian sectors wherein it is vital that Canadian culture must be “protected”. 
@@ -46,6 +48,7 @@ Canada’s restriction coefficient is evidently high relative to its peers. The 
 Interesting. 
 
 Okay, this blog was never meant to be in-depth on my thesis topic, but I figured for my first post ever I should write about something I'm passionate about. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
+
 
 
 Signing off,
