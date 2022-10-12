@@ -79,14 +79,16 @@ Finally, plt.show() makes your exploding pie chart real!
 
 ### Here's mine! 
 
-<img width="339" alt="image" src="https://user-images.githubusercontent.com/44441178/195229009-290f0a35-4d82-45e5-9a14-abbe922c7782.png">
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/44441178/195229009-290f0a35-4d82-45e5-9a14-abbe922c7782.png">
 
 
 While it may be my favourite type of visualization, I totally get if you're not as excited about it as I am. But you gotta admit it's kinda cool right?
 
 
-For my next post I'll be talking about my process on deciding which statistical correlation technique I wanted to use. 
+
+For my next post I'll be talking about my process on deciding which statistical correlation technique was the right choice to use. Spoiler: I decided on a Granger Causality and CCF Analysis.
 Hopefully I can get that up tomorrow!
+
 
 Signing off,
 
