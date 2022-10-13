@@ -5,7 +5,6 @@
 #### "...What?"
 
 Let me explain. In statistics, there are a _ton_ of statistical tools at your disposal to determine correlation. But like any good blacksmith, knowing which tool to unsheath and when is the most important factor differentiating a good data scientist/statistician from a mediocre one.
-For example, there are instances when you want to determine if a variable has a correlation with another variable - given a time-series.
 
 In this part, we'll be focusing on Pearson, Spearman, and Kendall.
 
@@ -17,6 +16,9 @@ import pandas as pd
 import seaborn as sns
 import scipy.stats as stats
 ```
+
+For example, there are instances when you want to determine if a variable has a correlation with another variable - given a time-series.
+
 
 Some statistical correlation coefficient calculations will need their own unique libraries, but the above code block is a safe start.
 
@@ -39,8 +41,7 @@ yi = value of y (for ith observation)
 Normal distribution - this just means the data must be a bell-shaped curve (you can normalize data yourself if necessary! But that's a topic for another day)
 Linear relation - Simply put, both variables must have a straight-line relationship.
 
-
-**Usage Example** Looking at two stocks and attempting to determine if they're correlated, and if so to what degree of correlation? Pearson's your man!
+**Usage Example:** Looking at two stocks and attempting to determine if they're correlated, and if so to what degree of correlation? Pearson's your man!
 If you have Pearson's correlation coefficient formula in your back pocket, so long as you're not doing anything regarding determining if one time series can serve as a predictor of another, or dealing with any heteroskedastic data, you're golden using Pearson (but don't forget to normalize your data!)
 
 
@@ -61,19 +62,19 @@ print(df.corr())
 
 ![Screen Shot 2022-10-12 at 9 53 16 PM](https://user-images.githubusercontent.com/44441178/195480491-6a3ad1cd-c7a3-4b99-96c6-3ded458fb207.png)
 
-Looks like a strong correlation here!
+Looks like a very strong correlation here!
 
 
 
-## Next, lets look at Spearman Correlation
+## Next, lets look at the Spearman Correlation
 
 It's crucial to understand the Pearson correlation _before_ Spearman.
-As previously stated, for a Pearson correlation to be used needs a linear and bell-shaped relationship (normally distributed); this will apply to most data.
+As previously stated, for a Pearson correlation to be used, a linear and bell-shaped relationship (normally distributed) is required.
 
-However, there will come times when the data being used does not satisfy these requirements.
+However, there will be times when the data being used does not satisfy these requirements.
 
-This is where Spearman comes in to save us. 
-**Limitation**:
+This is where Spearman comes to the rescue. 
+**Limitation:**
 Spearman's correlation function can only be used to measure monotonic relationships (If you don't know what these are, see my blog post - monotonic vs non-monotonic relationships)
 Spearman's correlation is also non-parametric.
 
@@ -104,7 +105,7 @@ print(df.corr())
 
 >0.66904
 ```
-A Pearson correlation coefficient of 0.67 indicated a non-perfect relationship. This is incorrect.
+A Pearson correlation coefficient of 0.67 indicates a non-perfect relationship. This is incorrect.
 
 To create a Spearman scatter plot in Python, it's a little more complicated than Pearson:
 
@@ -142,6 +143,7 @@ Which will return the aggregate spearman coefficient as well as the p-value.
 **Usage Example:** A paired data set where as variable x increases, variable y either increases or decreases - for example, is there a correlation between an NBA player's age, and his salary? 
 
 
+
 Finally, we'll explore what will likely be your least used statistical tool in your growing statistical toolbox:
 
 
@@ -168,10 +170,10 @@ Quite simple.
 Ordinal Data or Continuous Data
 Just like the Spearman Correlation, Kendall measure the monotonicity of a relationship. 
 
-**Usage Example** What is the correlation between a client's ranking of our company, and total shipping time?
+**Usage Example: ** What is the correlation between a client's ranking of our company, and total shipping time?
 
 
-While the Kendall Tau Coefficient serves to measure dependency, it may be better to use something like _Granger Causality_ for this purpose. We'll go over that in Part 2.
+While the Kendall Tau Coefficient serves to measure dependency, it may be better to use something like _Granger Causality_ for this purpose. I'm personally a huge fan of Granger Causality - but we'll go over that in Part 2.
 
 
 
