@@ -1,11 +1,13 @@
 # Useful Statistical Correlation Techniques: 
 ## Part 1 (Pearson, Spearman, Kendall)
 
-### Kendall, Granger, Pearson, Spearman, CCF
+### As a Data Scientist you might hear the terms: Kendall, Granger, Pearson, Spearman, or CCF often
 #### "...What?"
 
 Let me explain. In statistics, there are a _ton_ of statistical tools at your disposal to determine correlation. But like any good blacksmith, knowing which tool to unsheath and when is the most important factor differentiating a good data scientist/statistician from a mediocre one.
 For example, there are instances when you want to determine if a variable has a correlation with another variable - given a time-series.
+
+In this part, we'll be focusing on Pearson, Spearman, and Kendall.
 
 First, to cover the Python libraries you should import anytime you need to use statistical tools, the very basics include:
 
