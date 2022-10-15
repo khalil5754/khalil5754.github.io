@@ -32,9 +32,12 @@ Here's the equation for the parametric Pearson correlation:
 
 
 Where:
-r(xy) = Correlation coefficient of variable "x" with respect to variable "y" \n
-n = total number of observations \n
-xi = value of x (for ith observation) \n
+r(xy) = Correlation coefficient of variable "x" with respect to variable "y"
+
+n = total number of observations
+
+xi = value of x (for ith observation)
+
 yi = value of y (for ith observation)
 
 #### Required Limitations for Pearson Correlation: 
