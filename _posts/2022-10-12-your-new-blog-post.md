@@ -1,4 +1,4 @@
-# Useful Statistical Correlation Techniques: 
+# Useful Statistical Correlation Techniques
 ## Part 1 (Pearson, Spearman, Kendall)
 
 ### As a Data Scientist you might hear the terms: Kendall, Granger, Pearson, Spearman, or CCF often
