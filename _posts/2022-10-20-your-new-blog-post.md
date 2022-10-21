@@ -2,7 +2,7 @@
 
 ## Looking for a fast solution to querying?
 Look no further. 
-My personal favourite RDBMS (Relational Database Management System) is MySQL. Notoriously faster (and simpler) than its cousin the Object-Relational Database Management System PostgreSQL. MySQL is practically written in plain english and as a result, is the easiest for a newbie to learn (in my opinion) - which is why I'm going to walk you through how to create a database from scratch, followed by some simple queries.
+My personal favourite RDBMS (Relational Database Management System) is MySQL. Notoriously faster (and simpler) than its cousin the Object-Relational Database Management System PostgreSQL, MySQL is practically written in plain english and as a result, is the easiest for a newbie to learn (in my opinion). That is why I'm going to walk you through how to create a small database from scratch in MySQL, followed by some sample queries.
 
 Don't worry, we won't go too complex for the first SQL post. I will throw one or two small subqueries at you, but no Common Table Expressions (a type of subquery that comes _before_ the main query and makes subqueries much faster and more efficient to process) until the next SQL post. 
 Of course, before you can query a database you have to create it. Assuming you've got your IDE of choice open, the first command you need is self-explanatory "CREATE TABLE".
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `Course` (
 );
 ```
 
-Ta-Da! Your first ever table has been created. Or at least, we've told to create the coloumns which will form our database. "CNum" (the course number) has been indicated to be an integer, and the "Department" and "Title" coloumns are both strings of length n. If you've noticed, we also have a The primary key of a relation is a candidate key designated as the main key of the relation, essentially a coloumn with unique values that can be related to another table. This is something we can refer to more in our PostgreSQL analysis.
+Ta-Da! Your first ever table has been created. Or at least, we've told SQL to create the coloumns which will soon form our database. "CNum" (the course number) has been indicated to be an integer, and the "Department" and "Title" coloumns are both strings of length n. If you've noticed, we also have a The primary key of a relation is a candidate key designated as the main key of the relation, essentially a coloumn with unique values that can be related to another table. This is something we can refer to more in our PostgreSQL analysis.
 
 Now, you could go ahead and use this table already but you'll soon find that your queries aren't returning anything. Why is that? You haven't inserted any values into your table yet!
 
@@ -195,7 +195,9 @@ This returns:
 
 <img width="468" alt="image" src="https://user-images.githubusercontent.com/44441178/197108895-fd779018-84a3-49ba-989d-5156ca4625dc.png">
 
-See? SQL isn't so bad! I love it because it feels like I'm talking to my computer. This post _barely_ scraped the surface of the power SQL allows a skilled programmer to wield. There are many ways to make queries more efficient and more readable (you don't have to use AS everytime you alias, for example: "FROM Course c" is the same as "FROM Course AS c"). 
+See? SQL isn't so bad! I love it because it feels like I'm talking to my computer.
+
+This post _barely_ scraped the surface of the power SQL allows a skilled programmer to wield. There are many ways to make queries more efficient and more readable (you don't have to use AS everytime you alias, for example: "FROM Course c" is the same as "FROM Course AS c"). 
 We also only touched on inner joins in this post, but there are tons of other kinds of joins which have their own use cases, such as left joins, full joins, self joins, natural joins, etc.. But we'll talk about those in the same post that I introduce you to CTEs.
 
 For now: signing off,
