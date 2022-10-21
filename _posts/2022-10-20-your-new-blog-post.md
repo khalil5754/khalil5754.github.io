@@ -133,7 +133,7 @@ Now, let's do something a little more interesting, let's see the names and IDs o
  
  Here's the result:
  
- <img width="468" alt="image" src="https://user-images.githubusercontent.com/44441178/197079685-337acb37-b3da-4cd3-b731-9b3f14f5f6f9.png">
+ <img width="1059" alt="image" src="https://user-images.githubusercontent.com/44441178/197079685-337acb37-b3da-4cd3-b731-9b3f14f5f6f9.png">
 
  Look at Khalil, Joss, and Jones go! :)
  
@@ -169,7 +169,7 @@ The WHERE clause ensures the semester in the records being pulled is 'W22' AND, 
 
 This returns:
 
-<img width="468" alt="image" src="https://user-images.githubusercontent.com/44441178/197080929-2e958846-c7c6-4f6b-9df8-83945afb15e8.png">
+<img width="1059" alt="image" src="https://user-images.githubusercontent.com/44441178/197080929-2e958846-c7c6-4f6b-9df8-83945afb15e8.png">
 
 But we can make this more efficient using CTEs! Tune into that post soon.
 
@@ -193,7 +193,7 @@ The last line in the query, the ORDER BY clause orders the queries results by co
 
 This returns:
 
-<img width="468" alt="image" src="https://user-images.githubusercontent.com/44441178/197108895-fd779018-84a3-49ba-989d-5156ca4625dc.png">
+<img width="1059" alt="image" src="https://user-images.githubusercontent.com/44441178/197108895-fd779018-84a3-49ba-989d-5156ca4625dc.png">
 
 See? SQL isn't so bad! I love it because it feels like I'm talking to my computer.
 
