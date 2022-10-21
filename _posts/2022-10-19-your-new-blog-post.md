@@ -1,4 +1,4 @@
-# Using MySQL to Create a Database & Write Queries
+# Using MySQL to Create a Database and Write Queries
 
 ## Looking for a fast solution to querying?
 Look no further. 
@@ -113,7 +113,7 @@ This is the result of our query:
 
 As you can see, all the records have been returned successfully!
 
-Now, let's do something a little more interesting, let's see the names and IDs of the students who achieved a minimum grade of 80 in at least one of their classes in the Winter 2022 semester.
+Now, let's do something a little more interesting. Let's see the names and IDs of the students who achieved a minimum grade of 80 in at least one of their classes in the Winter 2022 semester.
 
  ```
  SELECT s.ID, s.Name, 80
