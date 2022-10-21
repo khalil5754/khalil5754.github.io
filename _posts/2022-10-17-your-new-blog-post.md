@@ -1,4 +1,4 @@
-# What is Machine Learning?
+# Machine Learning: Random Forest Walk, Linear Regression, and Other Common Algorithms
 
 
 Machine learning is programmed artificial intelligence that is given the task of teaching the computers to teach itself. To elaborate a little further, machine learning is a subset of AI that can self-learn using a variety of techniques. It can do so using data that it has collected from previous experiences, or it can self -learn using general data that a programmer can feed it. There are many ways for a machine to learn from data, but we’ll go over the big (and easy to understand) ones in this paper. You’ll find that the way machine learning works can be distilled quite easily into “the act of using statistics and large datasets to teach a machine to draw inferences/patterns”. The world of data science is at least as deep as the ocean, but for this post, let's do some surface-level exploration.
