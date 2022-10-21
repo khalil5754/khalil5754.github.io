@@ -20,11 +20,15 @@ There are many types of algorithms used by machine learning, from random forest 
 
  ![image](https://user-images.githubusercontent.com/44441178/196585687-378cc043-5417-41fd-8841-c22e69027926.png)
 
+
 ###### The line of best fit is represented here by Y = a*X + b. 
 
 The next type is a logistic regression model, which estimates binary values - also known as true/false, or 1/0. It does this by analyzing the probability of an event by fitting the data to a logit function. Its output is always 0 or 1.
 
+
+
  ![image](https://user-images.githubusercontent.com/44441178/196585856-4a7915f8-bc4e-4e18-9561-497bee0d9ecb.png)
+
 
 
 Machine learning is, at the end of the day, simply statistics! Regression models are used to allow an algorithm to learn from a large dataset and, using statistical correlation techniques such as the ones mentioned in my previous post (and likely the next post). Now, let’s look at a more complex/interesting algorithm: the random forest.
@@ -35,7 +39,8 @@ Not to keep leading you on or anything but to understand the random forest algor
 
 Decision trees require you to start with a question, for example: Is the weather okay for tennis today? Then, like a waterfall there are subsequent questions to ask such as: “what’s the weather outlook say?”, If it’s rainy - “what’s the wind like?” or “Is the humidity higher than usual?”. Decision tree models are intended to find the best possible way to split the aggregated data. They’re usually a supervised learning algorithm. The problem, however, with using decision trees for something that needs accuracy is that they’re notoriously vulnerable to bias and over-fitting. To solve this, enter the random forest algorithm
  
-  ![image](https://user-images.githubusercontent.com/44441178/196586035-364825ee-6a47-4109-a95d-325b01c68887.png)
+
+![image](https://user-images.githubusercontent.com/44441178/196586035-364825ee-6a47-4109-a95d-325b01c68887.png)
 
  
 Decision trees are, you guessed it, a supervised learning algorithm. The problem with using decision trees for a task arises when one needs accuracy - these models are notoriously vulnerable to bias and over-fitting. To solve this, enter the random forest algorithm.
@@ -43,7 +48,7 @@ Decision trees are, you guessed it, a supervised learning algorithm. The problem
 Regression or classification are the name of the game for random forest algorithms. There are 3 parameters which serve as the basis for the parameters of a random forest model. Node size, # of features, and # of nodes. Now, it’s a common trope among data scientists that if you have a problem with your model you just throw more models at it. The random forest algorithm takes this to another level, as it's really at its heart, an amalgamation of decision trees.
 
 
- ![image](https://user-images.githubusercontent.com/44441178/196586427-106cccf9-f92d-4a2b-96b4-48c2fdb93763.png)
+![image](https://user-images.githubusercontent.com/44441178/196586427-106cccf9-f92d-4a2b-96b4-48c2fdb93763.png)
 
 
 
