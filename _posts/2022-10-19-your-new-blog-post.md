@@ -202,7 +202,7 @@ We also only touched on inner joins in this post, but there are tons of other ki
 
 For now: signing off,
 
-Khalil (TheDataNerd)
+Khalil (TheStatsGuy)
 
 
 
