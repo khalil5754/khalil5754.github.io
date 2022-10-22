@@ -3,7 +3,7 @@
 #### So, you want to make a Pie chart - but you obviously want it to be more impactful, more interesting, more *pizzaz*.
 
 #### Here's what I propose: make that thing explode. 
-Daunting at first? Sure. But I'll show you how.
+Daunting at first? Sure. But I'll show you how. It'll be easy and short, which I promise will be a nice break when you see how long I plan on making my next few posts.
 
 As an example, I'll use the exploding pie chart I made for my thesis on Canadian FDI, as well as show the code behind the scenes.
  
@@ -82,15 +82,16 @@ Finally, plt.show() makes your exploding pie chart real!
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/44441178/195229009-290f0a35-4d82-45e5-9a14-abbe922c7782.png">
 
 
-While it may be my favourite type of visualization, I totally get if you're not as excited about it as I am. But you gotta admit it's kinda cool right?
+While it may be my favourite type of visualization, I totally get if you're not as excited about it as I am. But you gotta admit it's kinda cool right? It's also really not too hard to grasp!
 
 
 
-For my next post I'll be talking about my process on deciding which statistical correlation technique was the right choice to use. Spoiler: I decided on a Granger Causality and CCF Analysis.
-Hopefully I can get that up tomorrow!
+Another post I can't wait to write is about my process on deciding which statistical correlation technique was the right choice to use. Spoiler: I decided on a Granger Causality and CCF Analysis, but first I went through Pearson, Kenneth, and Spearman correlation coefficient equations. It turned out there's a lot more ways to test for correlation than I thought.
+
+It may need to be broken up into two posts (look out for the Granger Causality one), but hopefully I can get that up soon!
 
 
 Signing off,
 
-Khalil (TheStatsNerd)
+Khalil (TheStatsGuy)
 
