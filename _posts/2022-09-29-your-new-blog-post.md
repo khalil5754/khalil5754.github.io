@@ -59,8 +59,8 @@ To do this, the lambda function calls the epie function and gives its second arg
 
 The epie function then returns the result, to 1 decimal place.
 
-ax.pie() also calls upon that previously mentioned explode variable (told you), as well as the colours. There are many arguments ax.pie() can take, so I'd encourage you to look into the documentation.
-Using "fig, ax" is, as I'm sure if you're reading this you know, used to build the base of a content-less pyplot.
+The comman ax.pie() also calls upon that previously mentioned explode variable (told you), as well as the colours. There are many arguments ax.pie() can take, so I'd encourage you to look into the documentation and see the vast breadth of things you can do with it.
+Using "fig, ax" is, as I'm sure if you're reading this you already know, used to build the base of a content-less pyplot.
 
 
 Now that the mathematically heavy part is over (yes it's over) you can breathe a sigh of relief because you're almost done.
@@ -71,8 +71,7 @@ plt.setp(autotexts, size = 9, weight = "bold")
 ax.set_title("Canada's Inward FDI Composition By Country \n Source: Statistics Canada", color = 'black')
 plt.show()
 ```
-
-I personally didn't use a legend, but feel free to if it brings value to your visualization.
+I personally didn't use a legend as I preferred having the labels directly on my chart, but feel free to if it brings value to your visualization.
 "bbox_to_anchor" dictates the location of the legend, while I used the "setp" and "textprops" functions from matplotlib (see previous code block) to show the text in the pie chart itself.
 
 Finally, plt.show() makes your exploding pie chart real!
@@ -88,7 +87,7 @@ While it may be my favourite type of visualization, I totally get if you're not 
 
 Another post I can't wait to write is about my process on deciding which statistical correlation technique was the right choice to use. Spoiler: I decided on a Granger Causality and CCF Analysis, but first I went through Pearson, Kenneth, and Spearman correlation coefficient equations. It turned out there's a lot more ways to test for correlation than I thought.
 
-It may need to be broken up into two posts (look out for the Granger Causality one), but hopefully I can get that up soon!
+It may need to be broken up into two posts (look out for the Granger Causality one, it'll be a doozy), but hopefully I can get that up soon!
 
 
 Signing off,
