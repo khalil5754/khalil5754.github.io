@@ -32,7 +32,7 @@ Here's what Python returns for our print function:
 ![image](https://user-images.githubusercontent.com/44441178/197317954-d56c0769-35fc-4340-94ea-5ee67fa4c753.png)
 
 
-Woah, that's _way_ too many decimal places for SPY and CCI. But we can fix that easily using the round() function, with the parameter (decimals=2), to return two decimals of course. 
+Woah, that's _way_ too many decimal places for SPY and CCI. But we can fix that easily using the round() function, with the parameter (decimals=2) to return only two decimal places. 
 We should also merge the individual tables we've created into one, which we can do in one line. 
 
 ```
@@ -42,7 +42,7 @@ prices = portfolio[["Price_CCI", "Price_OPEN", "Price_SPY"]].round(decimals=2)
 print(prices.head())
 ```
 
-Giving each table its own suffix is important because all three tables being merged have a column named the same thing (Price) Python needs a way to distinguish them. If Python isn't told what suffix to use, it will create its own. We don't want that.
+Giving each table its own suffix is important because all three tables being merged have a column named the same thing (Price). Python needs a way to distinguish each table's "Price" column from the others. If Python isn't told what suffix to use, it will create its own. Of course with all due respect to our ally Python, we don't want that.
 We've also told Python what we want it to merge the tables on; in this case, the 'Date' column.
 
 Here's what Python returns:
@@ -50,11 +50,13 @@ Here's what Python returns:
 ![image](https://user-images.githubusercontent.com/44441178/197318137-8d4707c0-3e7f-44f9-ae61-39aac4b5d9dc.png)
 
 
-# Now that our data is cleaned up, we can create some visualizations.
+Now that our data is cleaned up, we can create some visualizations.
 
-## First, how'd our portfolio do from Febrary 1st to March 31st?
+## Portfolio Returns
 
-It's easy to figure this out so lets kill two birds with one stone and plot our portfolio's total returns, as well as how each individual stock did. **It's always better to create too many visualizations than not enough.**
+Well if you're in finance you know the most important question a client will ask isn't to do with volatility, it's: how did our portfolio do? Let's explore that.
+
+Looking at our returns from February through the end of March, it's easy to figure this out. Lets kill two birds with one stone and plot our portfolio's total returns, as well as how each individual stock did to better understand why our returns are how they are. **It's always better to create too many visualizations than not enough.**
 
 ```
 weights = [0.3, 0.4 , 0.3]
@@ -78,7 +80,7 @@ plt.ylabel('Daily Return, %')
 plt.legend()
 plt.show()
 ```
-The above code block might seem like there's a lot going on but it's actually extremely simple. With the first line we assign the weights of each stock - this is the percentage of our portfolio each stock comprises. My portfolio was 30% SPY, 40% OPEN, and 30% CCI - leading to weights of 0.30,0.40,0.30.
+The above code block might seem like there's a lot going on but it's actually extremely simple. With the first line we assign the weights of each stock - this is the percentage of our portfolio each stock comprises. My portfolio was allocted as such: 30% SPY, 40% OPEN, and 30% CCI - leading to weights of 0.30,0.40,0.30 being assigned, respectively.
 We then use the pct_change() function to find the percentage changes from day-to-day, while the dot() function returns the dot product of our arrays. In combination, the first two lines give us our portfolio returns every day, assigned to "portfolio_returns".
 
 Next we build our matplotlib plot using plt.figure() to build the base of the plot, then .plot() to call matplotlib's plot function. We'll go over this in more detail in the next post, where I'll be writing about my **_absolute favourite_** type of visualization in Python: the exploding pie chart. Assigning the colour "rebeccapurple" just because I think it's the best purple there is.
@@ -121,15 +123,15 @@ plt.show()
 We set a rolling window of 5 days for portfolio returns, so volatility will be calculated over a short time period. 
 After setting the rolling window on portfolio_returns, we can calculate the volatility by taking the standard deviation of returns_window using std(), then multiply that by the square root of n, where n is the total number of days - in this case, sqrt(57).
 
-Now we can plot the volatility of our portfolio over the course of 2 months using a 5-day rolling window by calling the plot() function on volatility_series.
+Now we can plot the volatility of our portfolio over the course of Febrary to March using a 5-day rolling window by calling the plot() function on volatility_series.
 
 Here's the final result:
 
 ![image](https://user-images.githubusercontent.com/44441178/197320721-584ce926-5dd3-4d38-ba6f-702b3e60410e.png)
 
-Look at that, our volatility plot matches up quite well with the plot of our portfolio's returns!
+Look at that, our volatility plot matches up quite well with the plot of our portfolio's returns! Trust me, there's no better feeling than final results that make sense.
 
-Finito!
+And finito!
 
 
 Thanks for making it to the end of today's post. It certainly wasn't the most interesting one I plan on writing but hey - without the boring ones there can't be interesting ones right?
