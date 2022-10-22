@@ -1,6 +1,6 @@
 # Introspective Growth *Prologue*: What is "Invisible Learning"? 
 
-#### Fair Warning, if you're here to see my code or my works - this post won't be that. See any of my other posts for examples of my work or if you're here for tutorials. As a matter of fact, I don't even think this should count this as a post - let's just call it a prologue. I'll be writing about how I learned about the term "invisible learning" and how it changed the way I view _work_. Also, I'll write about how I'm a proponent of the path of "least expected resistance", and how it has helped me grow. This may be confusing but let me explain.
+#### Fair Warning: if you're here to see my code or my works - this post won't be that. See any of my other posts for examples of my work or if you're here for tutorials. As a matter of fact, I don't even think this should count this as a post - let's just call it a prologue. I'll be writing about how I learned about the term "invisible learning" and how it changed the way I view _work_. Also, I'll write about how I'm a proponent of the path of "least expected resistance", and how it has helped me grow. This may be a little confusing but let me explain.
 
 I always wanted to be an author, and this April I got my first chance at a taste.
 
@@ -32,7 +32,7 @@ Francis saw something in me that I didn’t yet see in myself. The first class I
 
 Now, I have a paper in the process of being published. Even if it doesn’t get published the journey to get to where I am has been astounding — I’m not the same person I was in first, second, or even third year, and for that growth I’m thankful. Who knows what could’ve happened had I gone to Toronto, but I’m glad I didn’t because I’m proud of where I’ve gotten to now and what it took to get there. The point of this whole post was that a lot’s happened in the last five years, none of which would have happened had I picked the path that was expected of me.
 
-Now I’m left with a dilemma. Do I double down with my philosophy of choosing the path of “least expected” resistance (A term I invented because I don’t think there is really ever a path of least resistance, just different resistance) or, do I play it safe and graduate now, head off into the workforce and have a predictable life? Now that I type it out, I think I know what the answer is.
+Now I’m left with a dilemma. Do I double down with my philosophy of choosing the path of “least-expected” resistance (A term I invented because I don’t think there is really ever a path of least resistance, just _different_ resistance) or, do I play it safe and graduate now, head off into the workforce and have a predictable life? Now that I type it out, I think I know what the answer is.
 
 What’s next? Maybe Mcgill, or maybe I leave Eastern Canada altogether and beeline to UCalgary, or, just maybe, I go to Toronto this time. Who knows — and that’s exactly how I like it.
 
