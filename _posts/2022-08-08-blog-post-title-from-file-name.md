@@ -1,4 +1,4 @@
-## Using Tableau Visualizations to Canadian Foreign Direct Investment
+## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
 For my first post let's stick to a topic I know * *very* * well and dive into...
 #### A quick and dirty analysis of my thesis topic: Canada's dependency on Foreign Investment.
 
