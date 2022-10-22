@@ -1,6 +1,8 @@
 # Introspective Growth *Prologue*: What is "Invisible Learning"? 
 
-#### Fair Warning: if you're here to see my code or my works - this post won't be that. See any of my other posts for examples of my work or if you're here for tutorials. As a matter of fact, I don't even think this should count this as a post - let's just call it a prologue. I'll be writing about how I learned about the term "invisible learning" and how it changed the way I view _work_. Also, I'll write about how I'm a proponent of the path of "least expected resistance", and how it has helped me grow. This may be a little confusing but let me explain.
+#### Fair Warning: if you're here to see my code or my works - this post won't be that. See any of my other posts for examples of my work or if you're here for tutorials. As a matter of fact, I don't even think this should count this as a post - let's just call it a prologue. I'll be writing about how I learned about the term "invisible learning" and how it changed the way I view _work_. Also, I'll write about how I'm a proponent of the path of "least-expected resistance", and how it has helped me grow. This may be a little confusing but let me explain.
+
+
 
 I always wanted to be an author, and this April I got my first chance at a taste.
 
@@ -14,6 +16,8 @@ I went to my old colleague Google and asked it if this was a feeling other peopl
 While it was a relief I wasn’t alone, my itch was still — well, itchy. I had put in such an insane amount of work, it felt like a waste not to put it out there. Maybe it can help some sap starting out on their own research journey. Maybe I wrote a line of code I didn’t think much of, but could lead to an epiphany for someone else. Also, writing a research paper was a hugely beneficial experience, but there are a lot of stringent rules I wasn’t aware of until I started conducting my own research. I wanted to write something with a little more freedom. A little more wiggle-room. So I made this project. Re-living my research project before I’m even fully done (_is anyone ever fully done their paper?_) might even help me write a better one.
 
 To learn the phenomenon of “invisible learning” meant conceding that the majority of the effort I’ve put into my research has evaporated, never to be retrieved or showcased. That being said, it doesn’t mean that it hasn’t helped me grow. The process of looking for research journals. The process of finding new data and scrutinizing sources. The process of writing. It may not be retrievable, but I know it has changed me, I’ve absorbed it all and in a way, it will be with me forever.
+
+
 
 
 # The Path of "Least-Expected" Resistance:
