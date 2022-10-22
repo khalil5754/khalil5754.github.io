@@ -1,6 +1,6 @@
-# Python for Finance: Covariance & Volatility
+# Python for Finance: Returns, Variance, and Volatility
 
-Obviously, Python is a very powerful tool. I have yet to see a problem that I can't tackle using a Python library in some way. 
+Obviously, Python is a very powerful tool. I have yet to see a problem that I can't tackle using a Python library in some way. Some libraries are more efficient than others, but overall, Python is a tool that can be used to tackle most problems.
 
 Let's look at a couple of financial applications for Python in this post. 
 
