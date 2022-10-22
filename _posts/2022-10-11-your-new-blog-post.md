@@ -1,7 +1,7 @@
-# _Bonus Post:_ My Personal Thoughts on Nobel-Prize Winning Economist Ben Bernanke
+# _Bonus **Blog** Post:_ My Personal Thoughts on Nobel-Prize Winning Economist Ben Bernanke
 ##### (The man also sometimes referred to as "Helicopter Ben" but we'll get into that.)
 
-#### As you know, this page was intended to be purely an amalgamation of my work and my "invisible learning", but Ben Bernanke won a Noble Prize yesterday, and the economics community is split. I feel like in this case, a bonus post is warranted, as I'd love to add my two cents in. 
+#### As you know, this page was intended to be purely an amalgamation of my work and my "invisible learning", but Ben Bernanke won a Noble Prize yesterday, and the economics community is split. I feel like in this special case, a bonus post is warranted, as I'd love to add my two cents in. 
 
 
 There has historically been quite a lot of controversy surrounding Ben Bernanke and his run as Fed chairman during the Global Financial Crisis (GFC). When I first learned of Ben Bernanke, however, it was his coinage of the term “savings glut” that was of interest. What Ben Bernanke pointed out — correctly I might add — is that Asian economies tend to save too much, while Western economies don’t save enough, leading to a “savings glut”. His paper (for which he is now a Nobel Laureate) served to prove that “bank runs” — when savers rush to their respective banks to withdraw money due to a poor view of banks’ futures— were the larger catalyst of the Great Depression; a cause rather than an effect.
