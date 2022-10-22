@@ -48,11 +48,11 @@ Canada’s restriction coefficient is evidently high relative to its peers. The 
 
 Interesting. 
 
-There are many more factors, such as taxes and foreign policy, that make Canada an attractive destination. However, this blog was never meant to be in-depth on my thesis topic, but I figured for my first post ever I should write about something I'm passionate about. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
+There are many more factors, such as taxes and foreign policy, that make Canada an attractive destination. However, this blog was never meant to be in-depth on my thesis topic, but I figured for my first post ever I should write about something I'm passionate about. This was a short post - but don't get used to it, I'm just learning how to do this. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
 
 
 
 Signing off,
 
-Khalil
+Khalil (TheStatsGuy)
 ```
