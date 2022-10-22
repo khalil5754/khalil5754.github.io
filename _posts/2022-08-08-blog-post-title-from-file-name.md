@@ -1,4 +1,4 @@
-## Using Tableau Visualizations to Conduct Quality Economic Research
+## Using Tableau Visualizations to Canadian Foreign Direct Investment
 For my first post let's stick to a topic I know * *very* * well and dive into...
 #### A quick and dirty analysis of my thesis topic: Canada's dependency on Foreign Investment.
 
@@ -8,6 +8,9 @@ This is an opportunity for me to write about a topic tangentially related to my 
 
 <img width="1073" alt="Screen Shot 2022-06-08 at 5 40 36 PM" src="https://user-images.githubusercontent.com/44441178/195224920-3d9c05c0-fb0a-4394-97d9-3085041ed0af.png">
 
+To preface this post: the first step of any data analysis pipeline is to gather data from reputable sources (in this case the OECD), then clean the data using your method of choice (in this case using Python) _before_ engaging in any analysis. This post will be less of a tutorial and more of a short essay guided by insights gathered through Tableau. This is a very different style than the rest of my works, but I hope you enjoy it nonetheless!
+
+##### Without further ado...
 
 The Canadian government’s use of FDI cannot be understated, with industries and cities seeing tremendous growth as a result of generous policy geared toward promoting and maintaining FDI. Some research regarding FDI “heavy-hitters” rank global economies based on total inward FDI flow, or total stock. This is an inaccurate empirical measurement and statistically a poor method of analyzing economies which differ so significantly in scale. Canada, for example, has a GDP 1/20th the size of its southern neighbour, the United States, and a population just 11.5% the size. A more appropriate method of comparison is the percentage of its total GDP that an economy takes in as inward FDI flow. Of the developed world, the only country which allocates a higher percentage of its GDP to FDI than Canada is the United Kingdom.
 
