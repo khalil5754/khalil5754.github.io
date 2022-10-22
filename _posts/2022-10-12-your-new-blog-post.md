@@ -183,4 +183,4 @@ While the Kendall Tau Coefficient serves to measure dependency, it may be better
 
 Signing off,
 
-Khalil (TheStatsNerd)
+Khalil (TheStatsGuy)
