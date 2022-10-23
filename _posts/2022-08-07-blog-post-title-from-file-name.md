@@ -1,4 +1,4 @@
-# Introspective Growth *Prologue*: What is "Invisible Learning"? 
+# PROLOGUE: Introspective Growth - What is "Invisible Learning"? 
 
 #### Fair Warning: if you're here to see my code or my works - this post won't be that. See any of my other posts for examples of my work or if you're here for tutorials. As a matter of fact, I don't even think this should count this as a post - let's just call it a prologue. I'll be writing about how I learned about the term "invisible learning" and how it changed the way I view _work_. Also, I'll write about how I'm a proponent of the path of "least-expected resistance", and how it has helped me grow. This may be a little confusing but let me explain.
 
