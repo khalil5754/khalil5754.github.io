@@ -1,6 +1,7 @@
 # Granger Causality and Cross-correlation in Python: Determining if the VIX Index is a Reliable Predictor of Foreign Direct Investment in Canada
 
-I've heard from some people that data scientists shouldn't be calling themselves "scientists". Everytime I've heard this, I've respectfully disagreed. Someone doesn't have to be wearing a lab coat surrounded by beakers and graduated cylinders to be considered a scientists. What is a scientist but a professional who uses the scientific method to prove or disprove hypotheses? In this post, I'll be showing how data science _is_ a science, by using the scientific method to test our hypothesis: that VIX serves as a predictor of FDI. The null hypothesis, then, is that there is evidence that VIX does not "cause" FDI.
+
+I've heard from some people that data scientists shouldn't be calling themselves "scientists". Everytime I've heard this, I've respectfully disagreed. Someone doesn't have to be wearing a lab coat surrounded by beakers and graduated cylinders to be considered a scientist. What is a scientist but a professional who uses the scientific method to prove or disprove hypotheses? In this post, I'll be showing how data science _is_ a science by using the scientific method to test our hypothesis: that the VIX index serves as a predictor of FDI. The null hypothesis, then, is that there is evidence that VIX does not "cause" FDI.
 
 
 ## VIX and FDI Causality Analysis
@@ -14,7 +15,6 @@ Taking the VIX index monthly-high values over a 22-year period (1999-2021) and u
 <img width="698" alt="image" src="https://user-images.githubusercontent.com/44441178/197415507-978fedf5-9226-46a6-b82d-b470651886cf.png">
 
 
-
 It may be difficult to see a relationship in the above Tableau model without using statistical analysis techniques to interpret the data due to the inherent time it takes for factors like a global shock or even market uncertainty to ripple through the economy and impact an investment as significant as FDI. To confidently interpret the data, statistical tools are used to analyze linear time-series with a time-lag, such as a Granger causality test.
 
 
@@ -22,7 +22,7 @@ It may be difficult to see a relationship in the above Tableau model without usi
 
 Developed by prominent statistician Clive Granger, a Granger causality test is a statistical analysis method intended to determine if one variable is a reliable predictor of another, even if their effects suffer from a time lag. To determine if market volatility is a predictor of Canadian FDI levels, or if the reverse is true, the Granger causality test will be used to compare FDI inflow in Canada to VIX prices. Since the VIX index serves as an indicator for volatility, if FDI is in fact susceptible to volatility, there will be a correlation between the two variables. Therefore, the hypothesis is that VIX serves as a predictor of FDI. The opposite correlation will also be studied to determine if there is a bilateral relationship. The null hypothesis is that there is no evidence that VIX causes FDI. A standard p-value of <0.05 (95%) is required to confidently reject the null hypothesis.
 
-Using Granger Causality to test correlation in Python is simple - the less simple part is learning to parse the output and understanding how to draw conclusions from it. To conduct a Granger Causality test, we need to import the usual libraries, but also import "grangercausalitytests" from statsmodels.tsa.stattools. 
+Using Granger Causality to test simply correlation in Python is simple - the less simple part is learning to parse the output and understanding how to draw conclusions from it. To conduct a Granger Causality test, we need to import the usual libraries, but also import "grangercausalitytests" from statsmodels.tsa.stattools. 
 
 ```
 import numpy as np
@@ -55,7 +55,7 @@ From an economic lens this is intuitive - the more time goes on, the less global
 
 ## Spurious Regression
 
-The Granger-Causality test resulted in extremely low p-values, meaning VIX likely serves as a predictor of FDI. While the test has become widely accepted in the fields of econometrics and statistics, it is still vital to conduct at least another test to ensure there is no case of spurious regression. 
+The Granger causality test resulted in extremely low p-values, meaning VIX likely serves as a predictor of FDI. While the test has become widely accepted in the fields of econometrics and statistics, it is still vital to conduct at least another test to ensure there is no case of spurious regression. 
 
 Spurious regression is a phenomenon wherein two independent variables seem to have a significant correlation but are, in reality, uncorrelated. An example of spurious regression is looking at something like McDonald's daily sales, comparing it to the daily rate of drownings, and saying that when drownings are higher people are more likely to buy Mcdonald's. I know that's a bit of a morbid example, but of course drownings don't cause people to buy more Mcdonald's - even if the data shows that relationship as being correlated.
 
@@ -77,7 +77,7 @@ ax.plot(cross_corr)
 
 In writing the code for cross-correlation, the most helpful way to draw insight from it isn't to print a list of correlation coefficients for each lag (although you could do this if you want, but good luck explaining the numbers to anyone).
 
-Instead, taking the numbers that are output and visualizing them makes the insights that much more impactful. That means we have to add matplotlib.pyplot to the list of our library imports. Of course, before we're able to visualize the cross-correlation, we must indeed tell Python how to calculate the cross-correlation coefficients. To do this we use the stattools.ccf() function, feeding it the two columns "Inward FDI Flow" and "VIX Levels". The ccf function will shift the data in the VIX levels column with respect to the Inward FDI flow column, forming lags. We can then plot these correlation coefficients in the form of a line graph, but there isn't enough going on to derive useful insight yet. We don't just need to visualize the correlation coefficients, we also need to visualize the significance level (+/- 0.41) using two dotted lines. It won't hurt to visualize peak correlation either, so let's do both of those things.
+Instead, taking the output and visualizing the data makes the insights that much more impactful. That means we have to add matplotlib.pyplot to the previous list of our library imports. Of course, before we're able to visualize the cross-correlation, we must indeed tell Python how to calculate the cross-correlation coefficients. To do this we use the stattools.ccf() function, feeding it the two columns "Inward FDI Flow" and "VIX Levels". The ccf function will shift the data in the VIX levels column with respect to the Inward FDI flow column, forming lags. We can then plot these correlation coefficients in the form of a line graph, but there isn't enough going on to derive useful insight yet. We don't just need to visualize the correlation coefficients, we also need to visualize the significance level (+/- 0.41) using two dotted lines. It won't hurt to visualize peak correlation either, so let's do both of those things.
 
 ```
 ax.axvline(np.argmax(cross_corr[0:4]),color='r',linestyle='--',label='Peak Correlation')
@@ -122,9 +122,10 @@ This is the cross-correlation equation of a discrete finite series.
 
 To determine where cross-correlation values are significant, the equation 1.96/(√n) is used, a critical value of 1.96 is used indicating a 95% confidence interval. 
 
-And, in case you were truly curious: 
+And, in case you were truly statistically curious: 
 
-## VIX Formula:
+
+#### VIX Formula:
 
 <img width="557" alt="image" src="https://user-images.githubusercontent.com/44441178/197433222-9ba10c22-85c8-40df-95ae-81874a142fa2.png">
  
