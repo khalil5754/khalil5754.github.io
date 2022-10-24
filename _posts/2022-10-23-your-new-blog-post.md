@@ -12,7 +12,7 @@ If the relationship between VIX’s year high prices and FDI were correlated to 
 
 Taking the VIX index monthly-high values over a 22-year period (1999-2021) and using Tableau to visualize the data gives us this model:
 
-<img width="498" alt="image" src="https://user-images.githubusercontent.com/44441178/197415507-978fedf5-9226-46a6-b82d-b470651886cf.png">
+<img width="408" alt="image" src="https://user-images.githubusercontent.com/44441178/197415507-978fedf5-9226-46a6-b82d-b470651886cf.png">
 
 
 It may be difficult to see a relationship in the above Tableau model without using statistical analysis techniques to interpret the data due to the inherent time it takes for factors like a global shock or even market uncertainty to ripple through the economy and impact an investment as significant as FDI. To confidently interpret the data, statistical tools are used to analyze linear time-series with a time-lag, such as a Granger causality test.
