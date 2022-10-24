@@ -12,7 +12,7 @@ If the relationship between VIX’s year high prices and FDI were correlated to 
 
 Taking the VIX index monthly-high values over a 22-year period (1999-2021) and using Tableau to visualize the data gives us this model:
 
-<img width="698" alt="image" src="https://user-images.githubusercontent.com/44441178/197415507-978fedf5-9226-46a6-b82d-b470651886cf.png">
+<img width="498" alt="image" src="https://user-images.githubusercontent.com/44441178/197415507-978fedf5-9226-46a6-b82d-b470651886cf.png">
 
 
 It may be difficult to see a relationship in the above Tableau model without using statistical analysis techniques to interpret the data due to the inherent time it takes for factors like a global shock or even market uncertainty to ripple through the economy and impact an investment as significant as FDI. To confidently interpret the data, statistical tools are used to analyze linear time-series with a time-lag, such as a Granger causality test.
@@ -44,7 +44,7 @@ for lag in range(1,5):
 
 The result of this code block spits out multiple variables, but here's the result distilled to what we need to determine causality:
 
-<img width="898" alt="image" src="https://user-images.githubusercontent.com/44441178/197426600-e1c0f196-4dc6-4886-9829-9de4a7848005.png">
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/44441178/197426600-e1c0f196-4dc6-4886-9829-9de4a7848005.png">
 
 
 The high F-statistic shows that VIX serves as a predictor of FDI with a lag of 1 and 2 years. The p-value statistic (<0.05) for lags of 1 and 2 confirms that the null hypothesis is rejected with high confidence, further confirming the hypothesis. With a lag of 3 or greater however, the p-value results are not significant enough to confirm causation. 
@@ -75,7 +75,7 @@ f,ax=plt.subplots(figsize=(14,3))
 ax.plot(cross_corr)
 ```
 
-In writing the code for cross-correlation, the most helpful way to draw insight from it isn't to print a list of correlation coefficients for each lag (although you could do this if you want, but good luck explaining the numbers to anyone).
+In writing the code for cross-correlation, the most helpful way to draw insight from it isn't to print a list of correlation coefficients for each lag (although you could do this if you really want, but good luck explaining the numbers to anyone).
 
 Instead, taking the output and visualizing the data makes the insights that much more impactful. That means we have to add matplotlib.pyplot to the previous list of our library imports. Of course, before we're able to visualize the cross-correlation, we must indeed tell Python how to calculate the cross-correlation coefficients. To do this we use the stattools.ccf() function, feeding it the two columns "Inward FDI Flow" and "VIX Levels". The ccf function will shift the data in the VIX levels column with respect to the Inward FDI flow column, forming lags. We can then plot these correlation coefficients in the form of a line graph, but there isn't enough going on to derive useful insight yet. We don't just need to visualize the correlation coefficients, we also need to visualize the significance level (+/- 0.41) using two dotted lines. It won't hurt to visualize peak correlation either, so let's do both of those things.
 
@@ -90,15 +90,15 @@ plt.axhline(-1.96/np.sqrt(len(cross_corr)), color='k', ls='--')
 plt.axhline(1.96/np.sqrt(len(cross_corr)), color='k', ls='--')
 ```
 
-The command ax.axvline() draws a vertical line (hence the 'v' after ax), and the nested np.argmax() function returns the maximum value between the given array (cross_corr between the 0th year lag and the 4th year lag). All in all, this returns a vertical dotted (linestyle = '--') red line (color='r') at the peak correlation.
+The command ax.axvline() draws a vertical line (hence the 'v' after 'ax'), and the nested np.argmax() function returns the maximum value between the given array (cross_corr between the 0th year lag and the 4th year lag). All in all, this returns a vertical dotted (linestyle = '--') red line (color='r') at the peak correlation.
 
 The next line is self-explanatory - setting the title, y-axis limits (correlation can be highest at 1, meaning perfectly positively correlated and lowest at -1, meaning perfectly inversely correlated) and label, and the x-axis limits (we're only looking at lags up to 4 years) and label. We then set the tick values on both axes.
 
-The final two lines take the calculation we've used to identify significance in order to build a "band" or range of values wherein the correlation can be deemed significant. The calculation fed to the axhline() function ('h' meaning horizontal, of course) is the same calculation used above to determine significance: **1.96/(√n)**. Instead of writing out "linestyle" in the parameters, I've shown an alternative way to do this - using the short form 'ls'.
+The final two lines take the calculation we've used to identify significance in order to build a "band" or range of values wherein the correlation can be deemed significant. The calculation fed to the axhline() function ('h' meaning horizontal, of course) is the same calculation used above to determine significance: **1.96/(√n)**. Instead of writing out "linestyle" in the parameters, I've shown an alternative way to do this - using the short form 'ls='--'.
 
 Here's the result of our code, creating a very easy to read and visually appealing visualization!
 
-<img width="758" alt="image" src="https://user-images.githubusercontent.com/44441178/197432558-642cc719-cf40-4c17-a6ef-9b15fb2f7ea3.png">
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/44441178/197432558-642cc719-cf40-4c17-a6ef-9b15fb2f7ea3.png">
 
 The cross-correlation analysis shows that the only points at which VIX and FDI cross-correlate at a significant level are at a lag of 1 year, where the cross-correlation coefficient is equal to 0.56, and a lag of 2 years, where the coefficient is equal to about 0.47. Evidently, the hypothesis appears to be reinforced as peak causation occurs at a lag of 1 in both the Granger Causality and cross-correlation tests, with a lag of 2 remaining significant to a smaller degree of confidence.
 
@@ -109,14 +109,14 @@ In case you're a stats nerd like I am and would like to see the equations behind
 
 #### Granger Causality can be defined by the equation:
 
-<img width="530" alt="image" src="https://user-images.githubusercontent.com/44441178/197432813-2215d37b-81a1-4f75-9f42-7fee01594496.png">
+<img width="510" alt="image" src="https://user-images.githubusercontent.com/44441178/197432813-2215d37b-81a1-4f75-9f42-7fee01594496.png">
 
 Where Vt is the first time-series VIX Levels, and Ft is the second time-series Inward FDI Flow. In this equation, l is the maximum lag used, ay,bt, cy, and dt are coefficients of the model. ∈t and nt are two uncorrelated i.i.d. processes. If VIX causes FDI then ay must be statistically significant, and if FDI causes VIX then it must follow that cy be statistically significant. If both ay and cy  are statistically significant, then there is a bi-directional correlation between the two variables. A maximum time lag of 4 years was used throughout all of our tests, as any further could not be confidently correlated due to factors outside of our control.
 
 
 #### Cross-correlation can be defined by the equation:
 
-<img width="460" alt="image" src="https://user-images.githubusercontent.com/44441178/197433034-bacc3b04-f5fd-4ac7-bb26-ea8f23386fcd.png">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/44441178/197433034-bacc3b04-f5fd-4ac7-bb26-ea8f23386fcd.png">
 
 This is the cross-correlation equation of a discrete finite series.
 
@@ -127,7 +127,7 @@ And, in case you were truly statistically curious:
 
 #### VIX Formula:
 
-<img width="557" alt="image" src="https://user-images.githubusercontent.com/44441178/197433222-9ba10c22-85c8-40df-95ae-81874a142fa2.png">
+<img width="427" alt="image" src="https://user-images.githubusercontent.com/44441178/197433222-9ba10c22-85c8-40df-95ae-81874a142fa2.png">
  
 Where T is the future time horizon, and ‖𝜎‖2𝐿2 is the volatility average squared, over the time-period of length T. For the VIX Index, T is 30 days, as it is calculated over a 30-day rolling-window.
 
