@@ -11,7 +11,7 @@ If the relationship between VIX’s year high prices and FDI were correlated to 
 
 Taking the VIX index monthly-high values over a 22-year period (1999-2021) and using Tableau to visualize the data gives us this model:
 
-![image](https://user-images.githubusercontent.com/44441178/197415507-978fedf5-9226-46a6-b82d-b470651886cf.png)
+<img width="998" alt="image" src="https://user-images.githubusercontent.com/44441178/197415507-978fedf5-9226-46a6-b82d-b470651886cf.png"
 
 
 
