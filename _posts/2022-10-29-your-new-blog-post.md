@@ -1,4 +1,4 @@
-# Using MySQL to Create a Database and Write Queries
+# Using MySQL to Create a Simple Database and Write Queries
 
 ## Looking for a fast solution to querying?
 Look no further. 
