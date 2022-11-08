@@ -1,4 +1,4 @@
-# Using PostgreSQL to Build an Object-relational Database and Write Queries
+# Using PostgreSQL to Build an Object-relational Database and Write Parametric Queries
 
 I'll be honest: while I've been ecstatic about writing all of the tutorials/posts I've written thus far, PostgreSQL is my least favourite database management language. *With that being said*, it is undoubtedly a very powerful tool in its own right, especially in situations where you need something larger or more complex than what MySQL can offer. 
 For that reason, let us begin our PostgreSQL tutorial with the first step: 
