@@ -1,4 +1,4 @@
-# Useful Statistical Correlation Techniques Part 1: Pearson, Spearman, and Kendall 
+# Useful Statistical Correlation Techniques: Pearson, Spearman, and Kendall 
 
 ### As a Data Scientist you might hear the terms: Kendall, Granger, Pearson, Spearman, or CCF often
 #### "...What?"
@@ -16,7 +16,7 @@ import seaborn as sns
 import scipy.stats as stats
 ```
 
-For example, there are instances when you want to determine if a variable has a correlation with another variable - given a time-series.
+For example, sometimes there are instances when you want to determine if a variable has a correlation with another variable - given a time-series.
 
 
 Some statistical correlation coefficient calculations will need their own unique libraries, but the above code block is a safe start.
