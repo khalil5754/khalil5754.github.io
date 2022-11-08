@@ -1,7 +1,7 @@
 # Granger Causality and Cross-correlation in Python: Determining if the VIX Index is a Reliable Predictor of Foreign Direct Investment in Canada
 
 
-I've heard from some people that data scientists shouldn't be calling themselves "scientists". Everytime I've heard this, I've respectfully disagreed. Someone doesn't have to be wearing a lab coat surrounded by beakers and graduated cylinders to be considered a scientist. What is a scientist but a professional who uses the scientific method to prove or disprove hypotheses? In this post, I'll be showing how data science _is_ a science by using the scientific method to test our hypothesis: that the VIX index serves as a predictor of FDI. The null hypothesis, then, is that there is evidence that VIX does not "cause" FDI.
+I've heard from some of my peers that data scientists shouldn't be calling themselves "scientists". Everytime I've heard this, I've respectfully disagreed. Someone doesn't have to be wearing a lab coat surrounded by beakers and graduated cylinders to be considered a scientist. What is a scientist but a professional who uses the scientific method to prove or disprove hypotheses? In this post, I'll be showing how data science _is_ a science by using the scientific method to test our hypothesis: that the VIX index serves as a predictor of FDI. The null hypothesis, then, is that there is evidence that VIX does not "cause" FDI.
 
 
 ## VIX and FDI Causality Analysis
