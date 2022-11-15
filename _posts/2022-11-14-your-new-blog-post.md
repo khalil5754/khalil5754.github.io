@@ -107,7 +107,7 @@ Honestly, that's largely it as far as differences go in the table-building phase
   This is where it gets interesting. There are more powerful tools at your disposal through PostgreSQL than there are through MySQL, such as loops and variables. There are also many ways to write PostgreSQL queries, including writing functions with or without parameters straight through your terminal. I'll show an example of this, as well as a couple of different methods of writing Postgres queeries.
   
   
-  ### Writing a function to insert a new customer tuple.
+### Writing a function to insert a new customer tuple.
   
   Say we have a new customer that we would like to add to our database. Let's also assume this is a common occurrence at our analytics company, and we want to ensure anyone at the company - including non-programmers - can add this customer's data to the database simply by inputting parameters.
   
@@ -138,12 +138,14 @@ SELECT * FROM new_customer('A4', 'Khalil', 'MAN', 900);
  
  Then we simply SELECT * - of course selecting every record from the previously updated "Customer" table, followed by the ever-important "END;", which serves as a "break" and tells Postgres when we're ready for the next section to begin.
  
- Next, we tell the program what language we're using, in this case plpgsql, which is the procedural Postgres language.
- Finally, we can write the code which serves as the user input, calling the "new_customer" function and giving it the parameters it needs.
+Next, we tell the program what language we're using, in this case plpgsql, which is the procedural Postgres language.
+Finally, we can write the code which serves as the user input, calling the "new_customer" function and giving it the parameters it needs.
  
- In case you haven't noticed, something interesting about PostgreSQL is that after every full command, we need to give it a semi-colon. This is because of the inherent requirement in Postgres where functions need to know exactly when and where each command ends. However, once we run this code, we're presented with a problem. If I try to pull the records of transactions for each customer but our new customer has yet to create a transaction, what will be displayed? Well, nothing. Or NULL to be more specific. We don't want that because it makes it difficult to tell when nothing was pulled due to an error, or if there's simply no record for the transaction. This makes bug-hunting unnecessarily difficult. To remedy this, we can employ loops and variables using a different Postgres method.
+In case you haven't noticed, something interesting about PostgreSQL is that after every full command, we need to give it a semi-colon. This is because of the inherent requirement in Postgres where functions need to know exactly when and where each command ends. 
  
- ### Writing a query to display no transaction
+However, once we run this code, we're presented with a problem. If I try to pull the records of transactions for each customer but our new customer has yet to create a transaction, what will be displayed? Well, nothing. Or NULL to be more specific. We don't want that because it makes it difficult to tell when nothing was pulled due to an error, or if there's simply no record for the transaction. This makes bug-hunting unnecessarily difficult. To remedy this, we can employ loops and variables using a different Postgres method.
+ 
+### Writing a query to display no transaction
  Let's say we want the program to display "no transaction" for any customer with no transaction, such as our recently added tuple.
  For that, there is RAISE NOTICE, LOOP, and DECLARE RECORD:
  
@@ -175,10 +177,9 @@ $results$ LANGUAGE plpgsql;
  ```
  
 First, the CREATE OR REPLACE function ensures every time this function is run, it replaces the previous time - ensuring the function isn't replicated. 
-Then, we declare a new RECORD which will be used in our FOR statement. This new record - "notran" - serves as a variable of sorts. As you likely already know, SQL doesn't usually allow the declaration of variables (nor does it allow loops) - but Postgres has a few _loop_ holes (get it?) which allow you to accomplish these incredibly useful tasks. Using DECLARE notran RECORD, we assign to notran any account that is not in the "transactions" table. Through our notran variable we can then tell the program to loop through and display "Customer '_x_' has no transactions" if their account is not in the transactions record. All of this occurs prior to the actual main Postgres query running, as the query needs the results of this loop to return what we're looking for. In the main query, we select the account, customer name, amount, and vendor name. We then NATURAL JOIN (this is just like the everyday SQL join you're familiar with, except it tells the program to automatically choose the common record to join the tables on) a subquery that takes the most recent date from transactions for each account...
+Then, we declare a new RECORD which will be used in our FOR statement. This new record - "notran" - serves as a variable of sorts. As you likely already know, SQL doesn't usually allow the declaration of variables (nor does it allow loops) - but Postgres has a few _loop_ holes (get it?) which allow you to accomplish these incredibly useful tasks. Using DECLARE notran RECORD, we assign to notran any account that is not in the "transactions" table. Through our notran variable we can then tell the program to loop through and display "Customer '_x_' has no transactions" if their account is not in the transactions record. All of this occurs prior to the actual main Postgres query running, as the query needs the results of this loop to return what we're looking for. In the main query, we select the account, customer name, amount, and vendor name. We then NATURAL JOIN (this is just like the normal SQL join you're familiar with, except it tells the program to automatically choose the common record to join the tables on).
  
- 
- ### Let's combine both types of queries and do one more.
+### Let's combine both types of queries and do one more.
  
  ```
 CREATE OR REPLACE FUNCTION p8(theVno CHAR, theAccount CHAR, theAmount NUMERIC(10, 2)) RETURNS TABLE(Tno CHAR, Vno CHAR, Account CHAR, T_date DATE, Amount NUMERIC, Vbalance NUMERIC, Cbalance NUMERIC) AS $results$
@@ -231,11 +232,11 @@ The program then generates a transaction number for this new transaction, the da
 Finally, the program displays the new transaction and the updated customer and vendor records.
   
   
-  Just like that, we're done! As you can see, writing queries in Postgres is very different to writing them in MySQL. While I don't hate writing in Postgres, I personally certainly prefer MySQL or any other form of a Database Management language (although I'm sure you're tired of hearing that by now).
+Just like that, we're done! As you can see, writing queries in Postgres is very different to writing them in MySQL. While I don't hate writing in Postgres, I personally certainly prefer MySQL or any other form of a Database Management language (although I'm sure you're tired of hearing that by now).
   
-  All in all, Postgres is an important tool in a data scientist's toolbox, and I hope I've shown you in this post why that is, and how to utilize it.
+All in all, Postgres is an important tool in a data scientist's toolbox, and I hope I've shown you in this post why that is, and how to utilize it.
   
   
-  Until next time,
+Until next time,
   
   Khalil (TheDataNerd)
