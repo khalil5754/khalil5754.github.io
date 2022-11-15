@@ -1,4 +1,4 @@
-# What Machine Learning Really is: Random Forest Walk, Linear Regression, and Other Common Algorithms
+# What Does "Machine Learning" Mean? Random Forest Walk, Linear Regression, and Other Common Algorithms
 
 
 ## What is Machine Learning?
