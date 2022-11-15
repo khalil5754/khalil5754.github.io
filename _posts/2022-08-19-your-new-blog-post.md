@@ -1,10 +1,10 @@
 ## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
 For my first post let's stick to a topic I know *very* well and dive into...
-#### A quick and dirty analysis of my thesis topic: Canada's dependency on Foreign Investment.
+#### A quick and dirty Tableau analysis of my thesis topic: Canada's dependency on Foreign Investment.
 
-This is an opportunity for me to write about a topic tangentially related to my thesis that I couldn't explore in detail in my paper (darn word limits); now I can!
+This is an opportunity for me to write about a topic tangentially related to my thesis that I couldn't explore in detail in my paper (dang word limits) but now I can!
 
-###### (Sources are all from the OECD)
+###### (Data sources are all from the OECD)
 
 <img width="1073" alt="Screen Shot 2022-06-08 at 5 40 36 PM" src="https://user-images.githubusercontent.com/44441178/195224920-3d9c05c0-fb0a-4394-97d9-3085041ed0af.png">
 
@@ -16,16 +16,16 @@ The Canadian government’s use of FDI cannot be understated, with industries an
 
 Obviously, from the above visualization it's clear Canada is one of the most highly-dependent countries in the G7. It’s also clear Canada has succeeded in attracting a significant amount of FDI to its economy, to the tune of approximately $0.72 for every dollar the country generates.
 
-BUT WHY?
+But _why_ do FMNE (Foreign Multinational Enterprises) consistently choose Canada to set-up base?
 
 ### Well, for starters: Tertiary Education
 
 
-While many global economies share this desire to accept as much FDI as possible and thereby grow their economy, the Canadian economy is in a unique position as one of the most coveted destinations for foreign enterprises.
+While many global economies share Canada's desire to accept as much FDI as possible and thereby grow their economy, the Canadian economy is in a unique position as one of the most coveted destinations for foreign enterprises.
 
 To determine which country to select as a host country for FDI, enterprises conduct thorough research of potential destinations and consistently end up selecting Canada as a top destination for measured reasons.
 
-Intuitively, attracting foreign multinational enterprises (FMNEs) begins with an educated population, because enterprises want to hire adaptable employees that can be trained and trusted to produce positive results. An OECD published study (Michie 2001) found that a highly educated populace is the single biggest attractor of FDI. Taking this into consideration, examining the top FDI destinations in the world’s adult education levels reveals Canada as the distinct leader in tertiary (post-secondary) education. 
+Intuitively, attracting FMNEs begins with an educated populace because enterprises want to hire adaptable employees that can be trained and trusted to produce positive results. An OECD published study found that a highly educated populace is the single biggest attractor of FDI. Taking this into consideration, examining the top FDI destinations in the world’s adult education levels reveals Canada as the distinct leader in tertiary (post-secondary) education. 
 
 
 
@@ -39,7 +39,9 @@ With such a significant discrepancy in tertiary education between Canada and the
 ### Next, Canadian Restrictiveness
 
 Canadian Restrictiveness
-Canadian foreign economic policy is flexible and largely balanced. However, it is not without its faults – while flexible and balanced, Canada is ranked as one of the most restrictive countries to foreign investing. OECD’s FDI Restrictiveness Index ranks countries by their acceptance of foreign investors, with a value of 1 indicating no foreign investors allowed to partake, and 0 indicating no investment restrictions whatsoever. Canada ranks number one among developed economies in overall restriction of FDI. This is surprisingly not in line with the premise of this paper: if the government is so restrictive, why is FDI still flowing in in such significant quantities? The answer partially lies in the details.
+Canadian foreign economic policy is flexible and largely balanced. However, it is not without its faults – while flexible and balanced, Canada is ranked as one of the most restrictive countries to foreign investing - how does that make sense?
+
+OECD’s FDI Restrictiveness Index ranks countries by their acceptance of foreign investors, with a value of 1 indicating no foreign investors allowed to partake, and 0 indicating no investment restrictions whatsoever. Canada ranks number one among developed economies in overall restriction of FDI. This is surprisingly not in line with the premise of this paper: if the government is so restrictive, why is FDI still flowing in in such significant quantities? The answer partially lies in the details.
 
 
 <img width="730" alt="image" src="https://user-images.githubusercontent.com/44441178/195230082-275cd877-da46-41ee-9e77-4f8c261ed1c2.png">
@@ -51,11 +53,11 @@ Canada’s restriction coefficient is evidently high relative to its peers. The 
 
 Interesting. 
 
-There are many more factors, such as taxes and foreign policy, that make Canada an attractive destination. However, this blog was never meant to be in-depth on my thesis topic, but I figured for my first post ever I should write about something I'm passionate about. This was a short post - but don't get used to it, I'm just learning how to do this. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
+There are many more factors, such as taxes and foreign policy, that make Canada an attractive destination. However, this blog was never meant to be in-depth on my thesis topic, but I figured for my first real post ever (not counting the prologue) I should write about something I'm passionate about. This was a short post - but don't get used to it, I'm just learning how to do this. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
 
 
 
 Signing off,
 
 Khalil (TheStatsGuy)
-```
+
