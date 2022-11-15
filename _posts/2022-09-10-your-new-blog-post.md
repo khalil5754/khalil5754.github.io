@@ -1,11 +1,12 @@
-# Python for Finance: Returns, Variance, and Volatility
+# Python for Finance: Variance, Volatility, and Matrix Multiplication
 
-Obviously, Python is a very powerful tool. I have yet to see a problem that I can't tackle using a Python library in some way. Some libraries are more efficient than others, but overall, Python is a tool that can be used to tackle most problems.
+Obviously, Python is a very powerful tool. I have yet to see a problem that I can't tackle using a Python library in some way. Some libraries are more efficient than others, but overall, Python is a versatile tool that can be used to tackle a vast array of coding problems.
 
 Let's look at a couple of financial applications for Python in this post. 
 
-I've put together a 3 company portfolio consisting of SPY (the S&P 500), OPEN (Opendoor) - an iBuyer, and CCI (Crown Castle International) - a telecommunications giant in the U.S..
-We can start by importing the basic libraries that you will generally always be using when analyzing time-series data, and reading in our CSV's:
+I've put together a 3 company portfolio consisting of SPY (the S&P 500 ETF), OPEN (Opendoor Inc.) - an iBuyer, and CCI (Crown Castle International) - a telecommunications infrastructure giant based in the U.S..
+
+We can start by importing the basic libraries that you will generally always be using when analyzing time-series data, and (as usual) reading in our CSV's which I bet you already know how to do, but in case you don't:
 
 ```
 import pandas as pd
@@ -33,7 +34,7 @@ Here's what Python returns for our print function:
 
 
 Woah, that's _way_ too many decimal places for SPY and CCI. But we can fix that easily using the round() function, with the parameter (decimals=2) to return only two decimal places. 
-We should also merge the individual tables we've created into one, which we can do in one line. 
+We should also merge the individual tables we've created into one, which we can do efficiently in one line. 
 
 ```
 portfolio = CCI.merge(OPEN, on='Date', suffixes=('_CCI', '_OPEN')).merge(SPY, on='Date', suffixes=('_OPEN', '_SPY'))
@@ -43,18 +44,20 @@ print(prices.head())
 ```
 
 Giving each table its own suffix is important because all three tables being merged have a column named the same thing (Price). Python needs a way to distinguish each table's "Price" column from the others. If Python isn't told what suffix to use, it will create its own. Of course with all due respect to our ally Python, we don't want that.
-We've also told Python what we want it to merge the tables on; in this case, the 'Date' column.
+
+If you've ever used a DBMS (Database Management System) like MySQL you know you normally must give the program a column to merge both tables "on". Otherwise, how will the program know? We've told Python what we want it to merge the tables on; in this case, the 'Date' column.
 
 Here's what Python returns:
 
 ![image](https://user-images.githubusercontent.com/44441178/197318137-8d4707c0-3e7f-44f9-ae61-39aac4b5d9dc.png)
 
 
-Now that our data is cleaned up, we can create some visualizations.
+Now that our data is more cleaned up, we can create some visualizations.
 
 ## Portfolio Returns
 
-Well if you're in finance you know the most important question a client will ask isn't to do with volatility, it's: how did our portfolio do? Let's explore that.
+Well if you're in finance you know the most important question a client will ask isn't to do with volatility, it's: "how did our portfolio do?".
+Let's explore that.
 
 Looking at our returns from February through the end of March, it's easy to figure this out. Lets kill two birds with one stone and plot our portfolio's total returns, as well as how each individual stock did to better understand why our returns are how they are. **It's always better to create too many visualizations than not enough.**
 
@@ -80,7 +83,7 @@ plt.ylabel('Daily Return, %')
 plt.legend()
 plt.show()
 ```
-The above code block might seem like there's a lot going on but it's actually extremely simple. With the first line we assign the weights of each stock - this is the percentage of our portfolio each stock comprises. My portfolio was allocted as such: 30% SPY, 40% OPEN, and 30% CCI - leading to weights of 0.30,0.40,0.30 being assigned, respectively.
+The above code block might seem like there's a lot going on but it's actually extremely simple. With the first line we assign the weights of each stock - this is the percentage of our portfolio each stock comprises. My portfolio was allocted as such: 30% SPY, 40% OPEN, and 30% CCI - leading to weights of 0.30, 0.40, 0.30 being assigned, respectively.
 We then use the pct_change() function to find the percentage changes from day-to-day, while the dot() function returns the dot product of our arrays. In combination, the first two lines give us our portfolio returns every day, assigned to "portfolio_returns".
 
 Next we build our matplotlib plot using plt.figure() to build the base of the plot, then .plot() to call matplotlib's plot function. We'll go over this in more detail in the next post, where I'll be writing about my **_absolute favourite_** type of visualization in Python: the exploding pie chart. Assigning the colour "rebeccapurple" just because I think it's the best purple there is.
@@ -94,7 +97,7 @@ This returns two plots:
 
 ![image](https://user-images.githubusercontent.com/44441178/197319780-fc46abf4-5179-4ab3-8661-086cab87e288.png)
 
-Look at that, because of our high allocation of OPEN and the immense volatility in the stock compared to the relative steadiness of the other two picks in the portfolio, our portfolio's returns' shape looks very similar to OPEN's individual returns!
+Look at that - because of our high allocation of OPEN and the immense volatility in the stock compared to the relative steadiness of the other two picks in the portfolio, our portfolio's returns' shape looks very similar to OPEN's individual returns!
 
 
 # Volatility and Variance using Matrix Multiplication
