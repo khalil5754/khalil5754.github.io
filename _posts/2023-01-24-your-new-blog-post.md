@@ -1,4 +1,4 @@
-# Using Python to Build an XGBoost Prediction Model With an AWS Sagemaker Deployment: Penguin Weight Prediction
+# Using Python to Build an XGBoost Prediction Model: Penguin Weight Prediction
 
 Okay, now that we've gotten the _what_ and _why_ out of the way, let's focus on the fun one: the _how_. 
 
