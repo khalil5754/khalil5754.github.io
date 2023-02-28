@@ -32,7 +32,7 @@ penguins = sns.load_dataset("penguins")
 penguins.head()
 
 ```
-Note, we used penguins.head() because this is a 343 row dataset. While usually, you should be looking more deeply into a dataset and conducting some exploratory analysis to validate and ensure it's ready to be worked with, we're lucky enough to be using a built-in dataset that comes baked into Seaborn. Here is what the dataset looks like:
+Note, we used penguins.head() because this is a 343 row dataset. While usually you should be looking more deeply into a dataset and conducting some exploratory analysis to validate and ensure it's ready to be worked with, we're lucky enough to be using a built-in dataset that comes baked into Seaborn. Here is what the dataset looks like:
 
 <img width="674" alt="image" src="https://user-images.githubusercontent.com/44441178/221719927-928db570-defb-4b7d-bab4-bb5355cd268d.png">
 
@@ -104,7 +104,49 @@ XGB_model = xgb.train(
     early_stopping_rounds=20
  ```
 
+This is just a taste, in the next code block, it'll all come together and you'll see just how accurate we can get. 
 This is the boosting round now completed (see how simple XGBoost is?). The model has trained on the dataset we fed it, and has found all the patterns possible. The most important part comes next: measuring the accuracy of its results using unseen data. 
 
 
 
+```
+from sklearn.metrics import mean_squared_error
+
+preds = model.predict(dtest_reg)
+
+rmse = mean_squared_error(y_test, preds, squared=False)
+
+print(f"RMSE of the base model: {rmse:.2f}")
+
+results = xgb.cv(
+    params, dtrain_reg,
+    num_boost_round=n,
+    nfold=5,
+    early_stopping_rounds=20
+)
+
+
+best_rmse = results['test-rmse-mean'].min()
+
+best_rmse
+```
+
+This one time, let's go through the above code line-by-line.
+
+The first line imports the mean_squared_error function from the scikit-learn library, which will be used to calculate the RMSE.
+
+The second line uses the trained XGBoost model which we've appropriately named "model" to predict the target variable on the test set "dtest_reg".
+
+Then, we've asked XGBoost to calculate the RMSE of the predictions by comparing them to the true target variable values y_test using the mean_squared_error function. The "squared=False" argument tells the function that we want to compute the RMSE, rather than the mean squared error. 
+
+The next block of code uses the XGBoost "cv" function to perform cross-validation and select the best set of hyperparameters for the model. The "params" argument specifies the hyperparameters to be optimized, and "dtrain_reg" is the training data.
+
+The "results" variable stores the cross-validation results, including the mean RMSE and standard deviation across all folds for each boosting round.
+
+The last line of code extracts the best RMSE value from the cross-validation results and stores it in the "best_rmse" variable which we then display. We get an RMSE value of 342.93
+
+## How do I know if this is a good RMSE value? Does this mean the model is accurate?
+
+Typically, we want an RMSE as close to 0 as possible, without overfitting. Obviously 342.93 isn't close to zero, but as a general guideline, an RMSE value of less than 10% of the range of the target variable (in this case, the weight of the penguin) is considered to be a good performance for a model. The range of our penguin weights is vast at 3600 grams. Since the range of our penguins' weights is 3600 grams, an RMSE of less than 360 grams would be considered good performance. Therefore, we've achieved our goal. 
+
+Note, this model could be vastly improved by tuning our hyperparameters more specifically, using more performance metrics to check model performance, or even just examining the residuals more meticulously. With that being said, for an out-of-the-box working solution, an accuracy within 10% with so little performance load is staggering.
