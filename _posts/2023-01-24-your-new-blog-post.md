@@ -1,6 +1,5 @@
 # Using Python to Build an XGBoost Prediction Model: Penguin Weight Prediction
 
-Okay, now that we've gotten the _what_ and _why_ out of the way, let's focus on the fun one: the _how_. 
 
 ## The problem with problems
 
@@ -33,11 +32,11 @@ penguins = sns.load_dataset("penguins")
 penguins.head()
 ```
 
-Note, we used penguins.head() because this is a 343 row dataset. While usually you should be looking more deeply into a dataset and conducting some exploratory analysis to validate and ensure it's ready to be worked with, we're lucky enough to be using a built-in dataset that comes baked into Seaborn. Here is what the dataset looks like:
+Note we used penguins.head() because this is a 343 row dataset. While usually you should be looking more deeply into a dataset and conducting some exploratory analysis to validate and ensure it's ready to be worked with, we're lucky enough to be using a built-in dataset that comes baked into Seaborn. Here is what the dataset's first five rows look like:
 
 <img width="574" alt="image" src="https://user-images.githubusercontent.com/44441178/221719927-928db570-defb-4b7d-bab4-bb5355cd268d.png">
 
-Okay, we can work with this. First thing's first: XGBoost is not going to like the null values, so let me take this opportunity to show you how to drop rows with null values.
+Okay, we can work with this. First thing's first: XGBoost is not going to like the null values, so let me take this opportunity to quickly show you how to drop rows with null values.
 
 ```
 penguins.dropna(inplace = True)
@@ -45,11 +44,12 @@ penguins
 ```
 <img width="589" alt="Screenshot 2023-02-27 at 7 29 51 PM" src="https://user-images.githubusercontent.com/44441178/221720874-32f84b44-748c-417d-8387-021276fab46b.png">
 
-Much better. Next, let's frame our problem. We want to predict a penguin's weight given its body characteristics, its species, as well as the island it's found on. To do this, split our dataset into our prediction variable and our inputs. Note from the last blog post: variable _x_ is typically the input variable, any _y_ is the prediction variable.
+Much better. Next, let's frame our problem. We want to predict a penguin's weight given its body characteristics, its species, as well as the island it's found on. To do this, split our dataset into our prediction variable and our inputs. Note that variable _x_ is typically the input variable, and _y_ is the prediction variable.
 
 ```
 from sklearn.model_selection import train_test_split
 
+#Split x variable to inputs and y to prediction
 x, y = penguins.drop('body_mass_g', axis = 1), penguins[['body_mass_g']]
 ```
 
@@ -163,6 +163,7 @@ The last line of code extracts the best RMSE value from the cross-validation res
 Typically, we want an RMSE as close to 0 as possible, without an overfitting. Obviously 333.046 isn't close to zero, but as a general guideline, an RMSE value of less than 10% of the range of the target variable (in this case, the weight of the penguin) is considered to be a good performance for a model. The range of our penguin weights is vast at 3600 grams from the lightest penguin to the heaviest. Since the range of our penguins' weights is 3600 grams, an RMSE of less than 360 grams would be considered good performance. Therefore, we've achieved our goal. 
 
 Note, this model could be vastly improved by tuning our hyperparameters more specifically, using more performance metrics to check model performance, having a far larger dataset than just 343 penguins, or even just examining the residuals more meticulously. With that being said, for an out-of-the-box working solution, an accuracy within 10% with so little performance load is staggering!
+
 
 Thanks for reading and until next time,
 
