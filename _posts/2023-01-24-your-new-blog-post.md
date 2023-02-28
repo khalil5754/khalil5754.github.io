@@ -14,6 +14,7 @@ After you frame your problem, what are your dependent and independent variables?
 I love penguins, so naturally when I found a dataset built into seaborn called _penguins.csv_ I opened it. Fast. I initially just planned to build a visualization around it, but after seeing the dataset I realized it could be a perfect candidate to test an XGBoost model on. 
 
 First and foremost, installing XGBoost is as simple as:
+
 ```pip install XGBoost```
 
 I'd recommend installing in a venv (virtual environment), but if that's not something you're interested in, a simple pip install will suffice. We'll also e using the XGBoost API itself, as opposed to the Scikit API for XGBoost. This is just for simplicity and the two are easily interchangeable.
@@ -85,7 +86,9 @@ dtest_reg = xgb.DMatrix(x_test, y_test, enable_categorical = True)
 The enable_categorical parameter is set to True because this allows for Python to automatically encode columns. 
 
 Next, we'll choose a value for the _objective_ parameter, which tells XGBoost what problem we are trying to solve and which training loss formula _L_ we want to use. In doing so, we also set the parameters and the number of times we want XGBoost to cycle the model using the n variable. It's important that we find the perfect number for this, because if it does runs the model too many times it will inevitably end up overfitting - which we really want to avoid. To find this perfect amount don't throw a dart at a board or roll a set of dice. Instead, simply tell XGBoost you want it to stop running once the model stops improving for _x_ number of rounds. This is done using early_stopping_rounds and is among one of the many customizable options in your model.
-Another important factor you can customize is the verbose_evals number, which essentially tells XGBoost: Okay, I don't want to see how accurate you are _every_ round (we are doing 10000 rounds, which certainly adds up). The verbose_eval line will set the interval at which XGBoost will update you on it's accurazy, in our example, let's do every 50 rounds.
+
+Another important factor you can customize is the verbose_evals number, which essentially tells XGBoost: Okay, I don't want to see how accurate you are _every_ round (we are doing 10000 rounds, which certainly adds up). The verbose_eval line will set the interval at which XGBoost will update you on it's accuracy, in our example, let's do every 50 rounds.
+
 
 ```
 #Define our hyperparameters using a dictionary - we use RMSE as our objective
@@ -144,6 +147,7 @@ The next block of code uses the XGBoost "cv" function to perform cross-validatio
 The "results" variable stores the cross-validation results, including the mean RMSE and standard deviation across all folds for each boosting round.
 
 The last line of code extracts the best RMSE value from the cross-validation results and stores it in the "best_rmse" variable which we then display. We get an RMSE value of 342.93
+
 
 ## How do I know if this is a good RMSE value? Does this mean the model is accurate?
 
