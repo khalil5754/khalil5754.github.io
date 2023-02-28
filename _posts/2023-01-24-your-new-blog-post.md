@@ -34,7 +34,7 @@ penguins.head()
 ```
 Note, we used penguins.head() because this is a 343 row dataset. While usually you should be looking more deeply into a dataset and conducting some exploratory analysis to validate and ensure it's ready to be worked with, we're lucky enough to be using a built-in dataset that comes baked into Seaborn. Here is what the dataset looks like:
 
-<img width="674" alt="image" src="https://user-images.githubusercontent.com/44441178/221719927-928db570-defb-4b7d-bab4-bb5355cd268d.png">
+<img width="574" alt="image" src="https://user-images.githubusercontent.com/44441178/221719927-928db570-defb-4b7d-bab4-bb5355cd268d.png">
 
 Okay, we can work with this. First thing's first: XGBoost is not going to like the null values, so let me take this opportunity to show you how to drop rows with null values.
 
@@ -42,7 +42,7 @@ Okay, we can work with this. First thing's first: XGBoost is not going to like t
 penguins.dropna(inplace = True)
 penguins
 ```
-<img width="689" alt="Screenshot 2023-02-27 at 7 29 51 PM" src="https://user-images.githubusercontent.com/44441178/221720874-32f84b44-748c-417d-8387-021276fab46b.png">
+<img width="589" alt="Screenshot 2023-02-27 at 7 29 51 PM" src="https://user-images.githubusercontent.com/44441178/221720874-32f84b44-748c-417d-8387-021276fab46b.png">
 
 Much better. Next, let's frame our problem. We want to predict a penguin's weight given its body characteristics, its species, as well as the island it's found on. To do this, split our dataset into our prediction variable and our inputs. Note from the last blog post: variable _x_ is typically the input variable, any _y_ is the prediction variable.
 
@@ -62,7 +62,7 @@ for value in labs:
     x[value] = x[value].astype('category')
     x.dtypes
 ```
-<img width="429" alt="image" src="https://user-images.githubusercontent.com/44441178/221723277-c82ea9ef-56fe-455b-9c1f-a94976300d86.png">
+<img width="269" alt="image" src="https://user-images.githubusercontent.com/44441178/221723277-c82ea9ef-56fe-455b-9c1f-a94976300d86.png">
 
 Looking good so far! 
 
