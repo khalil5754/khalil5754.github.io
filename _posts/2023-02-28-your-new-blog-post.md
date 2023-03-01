@@ -1,4 +1,4 @@
-## Using MS SQL and Power BI to Deliver Value to Stakeholders:
+## Using MS SQL for Performance and Power BI for Actionable Insights:
 
 What is normalization?
 
@@ -60,8 +60,9 @@ SQL Server and MySQL share many similarities - their differences mainly come fro
 
 Okay. Now let's work on a mini-project leveraging MS SQL - then see what Power BI can do with the data we pull. 
 
-We have a table with the salary data of baseball players spanning over 100 years. Another table has the statistical performance of each baseball player. Let's look into our batters in particular. Only looking at years after 1950, what is the correlation between the average number of home runs a player hits throughout their career, and their total career earnings?
+We have a table with the salary data of baseball players spanning over 100 years. Another table has the statistical performance of each baseball player. Let's look into our batters in particular. Only looking at years after 1984, which is when salary data became publicly available in the MLB, what is the correlation between the average number of home runs a player hits throughout their career, and their total career earnings?
 
+We have but four columns we're concerned with: Year, Home Runs, PlayerID (PK), and Salary.
 Let's see what we can do using the power of Common Table Expressions: 
 
 ```
@@ -100,3 +101,10 @@ These indexes will improve query performance by allowing the database to quickly
 
 Now let's create a Power BI model to put the data in perspective:
 
+![Screenshot 2023-03-01 at 2 00 45 PM](https://user-images.githubusercontent.com/44441178/222240200-f8608d44-0dd0-4112-91c7-a2900e6c48cd.png)
+
+While this may have what we're looking for, it may have been better to only show players who have hit more than 10 home runs in their career. After all, this is a dataset with _every_ batter in the last 100+ years, and the vast majority of batters in history haven't hit very many, if any, home runs. We can use Power BI to filter any players with less than 10 home runs. 
+
+![Screenshot 2023-03-01 at 2 01 57 PM](https://user-images.githubusercontent.com/44441178/222240641-53df51b2-fead-4b11-b5ee-0bc45394401c.png)
+
+Wow! There is an obvious correlation, but Power BI can of course go even further. Let's next add in a table that can match the playerID's with the player's full names, and see who the highest salary batters are.
