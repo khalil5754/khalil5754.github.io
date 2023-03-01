@@ -51,7 +51,52 @@ To create an index, MS SQL has the CREATE INDEX function, which just needs to kn
 CREATE INDEX idx_total_purchase ON TotalPurchase (Customers);
 ```
 
-Important to note is that while indexes do increase performance, there is still some drawbacks to consider. Indexing requires more storage space for our newly created nodes, and they will also create a slight slowdown in write speed.
+Important to note is that while indexes do increase performance, there are still some drawbacks to consider. Indexing requires more storage space for our newly created nodes, and they will also create a slight slowdown in write speed.
 
 
+## Using SQL Server's Unique Merge Function
+
+SQL Server and MySQL share many similarities - their differences mainly come from scalability (SQL Server scales better) and security wherein SQL Server is also inherently more secure due to built-in encryption and role-based access control. There are small functionality differences, such as the use of a MERGE command in MS SQL which can perform INSERT, UPDATE, and DELETE functions in just one line. The syntax differences are relatively small - LIMIT in MySQL is TOP in MS SQL and instead of CAST, MS SQL uses TRY_CONVERT. Overall for an enterprise focused on security, performance, and scalability, MS SQL is likely the right choice. 
+
+Okay. Now let's work on a mini-project leveraging MS SQL - then see what Power BI can do with the data we pull. 
+
+We have a table with the salary data of baseball players spanning over 100 years. Another table has the statistical performance of each baseball player. Let's look into our batters in particular. Only looking at years after 1950, what is the correlation between the average number of home runs a player hits throughout their career, and their total career earnings?
+
+Let's see what we can do using the power of Common Table Expressions: 
+
+```
+WITH cte_homeruns AS (
+    SELECT playerID, 
+           AVG(NumberOfHomeruns) AS avg_homeruns 
+    FROM batting
+    WHERE TRY_CONVERT(int, year) > 1950 
+    GROUP BY playerID
+),
+cte_salaries AS (
+    SELECT playerID, 
+           SUM(salary) AS total_salary 
+    FROM salaries
+    GROUP BY playerID
+)
+SELECT cte_homeruns.playerID,
+       cte_homeruns.avg_homeruns,
+       cte_salaries.total_salary
+FROM cte_homeruns
+INNER JOIN cte_salaries
+ON cte_homeruns.playerID = cte_salaries.playerID
+ORDER BY cte_homeruns.avg_homeruns DESC;
+
+```
+This new code uses a CTE to first filter out any records with invalid birthdates. It does this by casting the birthdate column as a date datatype using the CAST() function and then using the TRY_CONVERT() function to determine if the cast was successful. If the cast was successful, the record is included in the main query, which pulls data from the CTE. The cte_salaries query simply exists to calculate the SUM of each player's career earnings. Finally, we select all columns from the PlayerStats CTE and order the results by the average home runs in descending order.
+
+To improve performance, we can also add indexes on the batting and salaries tables on the playerID and year columns, as these are used in the WHERE clauses for filtering the data. For example, we can create the following indexes:
+
+```
+CREATE INDEX idx_batting_player_year ON batting(playerID, year);
+CREATE INDEX idx_salaries_player_year ON salaries(playerID, year);
+```
+
+These indexes will improve query performance by allowing the database to quickly find the relevant rows for each player and year, without having to scan the entire table.
+
+Now let's create a Power BI model to put the data in perspective:
 
