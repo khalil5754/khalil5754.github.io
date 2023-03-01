@@ -1,9 +1,10 @@
 ## Using MS SQL for Performance and Power BI for Actionable Insights:
 
-What is normalization?
+What is Normalization?
 
-To avoid redundant data, normalization transforms a dataset so it has a standard scale. The goal is to make the dataset easier to compare and analyze. For example if we had our penguin weight in grams, but our penguin's heights were in feet (or inches), we could choose to normalize the two by converting both to percentiles or the same unit of measure. More commonly, normalization is used to turn a skewed distribution into a normalized or "symmetrical" distribution, becoming easier to apply statistical analysis to.
-Denormalization, on the other hand, our focus is not on reducing redundancy but improving search capability. This is because when one reduces redundancy in a SQL table, the redundancies are moved to external tables, thus it becomes more time-consuming and resource-heavy to run queries on these multiple tables. Denormalization takes the split tables and merges them into one single table.
+Sometimes tables have a lot of redundant data, whether it's a country code _and_ full country name, or something even less useful, this can be a strain on the performance of a SQL query. To avoid redundant data, normalization transforms a dataset so it has a standard scale. The goal is to make the dataset easier to compare and analyze. For example if we had our penguin weight in grams, but our penguin's heights were in feet (or inches), we could choose to normalize the two by converting both to percentiles or the same unit of measure. More commonly, normalization is used to turn a skewed distribution into a normalized or "symmetrical" distribution, becoming easier to apply statistical analysis to.
+
+Denormalization, on the other hand, is quite the opposite. Our focus is not on reducing redundancy but improving search capability. This is because when one reduces redundancy in a SQL table, the redundancies are moved to external tables, thus it becomes more time-consuming and resource-heavy to run queries on these multiple tables. Denormalization takes the split tables and merges them into one single table.
 
 When you have a system wherein you are inputting or loading data into a database, typically you want to normalize the data to make it more lightweight and less redundant. However, when you want to pull data from the table, you want the searching time for SQL to be as short as possible, which is when you would want to implement de-normalization.
 
@@ -60,7 +61,8 @@ SQL Server and MySQL share many similarities - their differences mainly come fro
 
 Okay. Now let's work on a mini-project leveraging MS SQL - then see what Power BI can do with the data we pull. 
 
-We have a table with the salary data of baseball players spanning over 100 years. Another table has the statistical performance of each baseball player. Let's look into our batters in particular. Only looking at years after 1984, which is when salary data became publicly available in the MLB, what is the correlation between the average number of home runs a player hits throughout their career, and their total career earnings?
+
+We have a table with the salary data of baseball players spanning about 40 years. Another table has the statistical performance of each baseball player spanning over a century. Let's look into our batters in particular. Only looking at years after 1984, which is when salary data became publicly available in the MLB, what is the correlation between the average number of home runs a player hits throughout their career, and their total career earnings?
 
 We have but four columns we're concerned with: Year, Home Runs, PlayerID (PK), and Salary.
 Let's see what we can do using the power of Common Table Expressions: 
