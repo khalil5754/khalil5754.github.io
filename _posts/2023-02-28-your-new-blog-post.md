@@ -1,6 +1,6 @@
 ## Using MS SQL for Performance and Power BI for Actionable Insights:
 
-What is Normalization?
+### What is Normalization?
 
 Sometimes tables have a lot of redundant data, whether it's a country code _and_ full country name, or something even less useful, this can be a strain on the performance of a SQL query. To avoid redundant data, normalization transforms a dataset so it has a standard scale. The goal is to make the dataset easier to compare and analyze. For example if we had our penguin weight in grams, but our penguin's heights were in feet (or inches), we could choose to normalize the two by converting both to percentiles or the same unit of measure. More commonly, normalization is used to turn a skewed distribution into a normalized or "symmetrical" distribution, becoming easier to apply statistical analysis to.
 
@@ -14,8 +14,11 @@ In high-capacity systems, such as databases with millions of lines of code, you 
 ## The normalization process: 1st, 2nd, and 3rd normal forms
 
 Remember APT: Atomic, Partial, Transient.
+
 1st normal form: No repeating groups. This essentially means if you load your dataset as a csv, there should be no more than one input per cell. If this is not the case the columns should be split to ensure atomic (unique) values.
+
 2nd normal form: 1st normal form rules still apply, but all non-key columns should be _fully_ dependent on the primary key. This can be achieved by splitting a table to ensure each column is fully dependent on the PK.
+
 3rd normal form: All previous form rules still apply, but without transient dependency. This means no non-key column should depend on any other non-key column.
 
 To achieve normalization in SQL, we can create a series of tables and relationships using SQL statements such as CREATE TABLE, ALTER TABLE, and JOIN. For example, in order to create a normalized database for a customer orders system, we can create separate tables for customers, orders, and order details, with relationships between them based on the customer ID and order ID.
@@ -105,8 +108,10 @@ Now let's create a Power BI model to put the data in perspective:
 
 ![Screenshot 2023-03-01 at 2 00 45 PM](https://user-images.githubusercontent.com/44441178/222240200-f8608d44-0dd0-4112-91c7-a2900e6c48cd.png)
 
-While this may have what we're looking for, it may have been better to only show players who have hit more than 10 home runs in their career. After all, this is a dataset with _every_ batter in the last 100+ years, and the vast majority of batters in history haven't hit very many, if any, home runs. We can use Power BI to filter any players with less than 10 home runs. 
+Of course, we expected a correlation - but it is always fun to see what we can do with a SQL-manipulated dataset. To be clear, this whole project could have been done entirely in Power BI (or Tableau), but to keep a skill sharp you have to use it, and I like my SQL skills sharp.
 
-![Screenshot 2023-03-01 at 2 01 57 PM](https://user-images.githubusercontent.com/44441178/222240641-53df51b2-fead-4b11-b5ee-0bc45394401c.png)
+In part 2 of this blog we'll be further diving into some baseball datasets and using some more powerful tools to manipulate and pull data. Stay tuned for part 2 this week!
 
-Wow! There is an obvious correlation, but Power BI can of course go even further. Let's next add in a table that can match the playerID's with the player's full names, and see who the highest salary batters are.
+Thanks for reading,
+
+Khalil (TheStatsGuy)
