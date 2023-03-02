@@ -1,4 +1,4 @@
-## Using MS SQL for Performance and Power BI for Actionable Insights:
+## Using MS SQL and Power BI: The Correlation Between Home Runs and Total Career Earnings.
 
 ### What is Normalization?
 
@@ -110,7 +110,7 @@ Now let's create a Power BI model to put the data in perspective:
 
 Of course, we expected a correlation - but it is always fun to see what we can do with a SQL-manipulated dataset. To be clear, this whole project could have been done entirely in Power BI (or Tableau), but to keep a skill sharp you have to use it, and I like my SQL skills sharp.
 
-In part 2 of this blog we'll be further diving into some baseball datasets and using some more powerful tools to manipulate and pull data. Stay tuned for part 2 this week!
+In part 2 of this blog we'll be further diving into some baseball datasets and using some more powerful queries and Power BI tools to manipulate and pull more actionable data. Stay tuned for part 2 this week!
 
 Thanks for reading,
 
