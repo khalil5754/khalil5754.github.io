@@ -93,7 +93,7 @@ ON cte_homeruns.playerID = cte_salaries.playerID
 ORDER BY cte_homeruns.avg_homeruns DESC;
 
 ```
-This new code uses a CTE to first filter out any records with invalid birthdates. It does this by casting the birthdate column as a date datatype using the CAST() function and then using the TRY_CONVERT() function to determine if the cast was successful. If the cast was successful, the record is included in the main query, which pulls data from the CTE. The cte_salaries query simply exists to calculate the SUM of each player's career earnings. Finally, we select all columns from the PlayerStats CTE and order the results by the average home runs in descending order.
+This code uses a CTE to first filter out any records with invalid birthdates by casting the birthdate column as a date datatype using the CAST() function and then using the TRY_CONVERT() function to determine if the cast was successful. If the cast was successful, the record is included in the main query, which pulls data from the CTE. The cte_salaries query simply exists to calculate the SUM of each player's career earnings. Finally, we select all columns from the PlayerStats CTE and order the results by the average home runs in descending order.
 
 To improve performance, we can also add indexes on the batting and salaries tables on the playerID and year columns, as these are used in the WHERE clauses for filtering the data. For example, we can create the following indexes:
 
@@ -102,7 +102,7 @@ CREATE INDEX idx_batting_player_year ON batting(playerID, year);
 CREATE INDEX idx_salaries_player_year ON salaries(playerID, year);
 ```
 
-These indexes will improve query performance by allowing the database to quickly find the relevant rows for each player and year, without having to scan the entire table.
+These indexes can improve query performance by allowing the database to quickly find the relevant rows for each player and year, without having to scan the entire table.
 
 Now let's create a Power BI model to put the data in perspective:
 
@@ -111,6 +111,7 @@ Now let's create a Power BI model to put the data in perspective:
 Of course, we expected a correlation - but it is always fun to see what we can do with a SQL-manipulated dataset. To be clear, this whole project could have been done entirely in Power BI (or Tableau), but to keep a skill sharp you have to use it, and I like my SQL skills sharp.
 
 In part 2 of this blog we'll be further diving into some baseball datasets and using some more powerful queries and Power BI tools to manipulate and pull more actionable data. Stay tuned for part 2 this week!
+
 
 Thanks for reading,
 
