@@ -39,9 +39,9 @@ CREATE TABLE Customers (
 
 ## Unique Key VS. Primary Key
 
-Simple, primary keys can not have nulls, but unique keys can have nulls. Also, there can only be one primary key while there can be many unique keys.
+The difference is simple, but important - primary keys can not have nulls, while unique keys can have nulls. Also, there can only be one primary key while there can be many unique keys.
 
-Why are we using char instead of varchar or nchar? Well char is a fixed character length, while varchar is flexible. The n in ncode, on the other hand, makes it so non-english inputs work - however, this means unicode is supporting which will make each char 2 bytes. 
+Why are we using char instead of varchar or nchar? Well char is a fixed character length, while varchar is flexible. While I'm at it let me tell you that the n in "ncode", on the other hand, makes it so non-english inputs work - however, this means unicode is supported which will make each char 2 bytes, thus increasing computational load.
 
 
 ## How can we increase the performance of our MS SQL query? 
