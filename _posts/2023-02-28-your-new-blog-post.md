@@ -110,6 +110,14 @@ Now let's create a Power BI model to put the data in perspective:
 
 Of course, we expected a correlation - but it is always fun to see what we can do with a SQL-manipulated dataset. To be clear, this whole project could have been done entirely in Power BI (or Tableau), but to keep a skill sharp you have to use it, and I like my SQL skills sharp.
 
+You may have noticed there is one big problem with our data, however. It is intuitive that a baseball player who has scored more home runs, is also more likely to have been in the MLB longer, thus also earning more money! While we're at it note that having the size of markers be tied to the amount of salary is good, but not when we have already visualized what we want to sufficiently. All we're doing after that point is adding unneccesary visual clutter.
+
+Instead of committing to SUMS of values, let us work with averages. Namely: Average home runs plotted against average yearly salary. 
+
+![Screenshot 2023-03-02 at 9 55 52 PM](https://user-images.githubusercontent.com/44441178/222620215-a03b7d53-eba2-4609-9530-55bb7c82ddaf.png)
+
+Much better. Remember to always question your own approach if things don't seem right! There's no shame in catching a mistake. 
+
 In the next section of this blog we'll be further diving into some baseball datasets and using some more powerful queries and Power BI tools to manipulate and pull more actionable data. Stay tuned for an update this week!
 
 
