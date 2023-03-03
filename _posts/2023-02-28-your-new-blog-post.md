@@ -106,7 +106,7 @@ These indexes can improve query performance by allowing the database to quickly 
 
 Now let's create a Power BI model to put the data in perspective:
 
-![image](https://user-images.githubusercontent.com/44441178/222617162-6064d5af-38d5-45df-95ad-a22b984c31a7.png)
+![image](https://user-images.githubusercontent.com/44441178/222619161-0be5e274-5b43-4089-b104-f71cde7e6bf8.png)
 
 Of course, we expected a correlation - but it is always fun to see what we can do with a SQL-manipulated dataset. To be clear, this whole project could have been done entirely in Power BI (or Tableau), but to keep a skill sharp you have to use it, and I like my SQL skills sharp.
 
