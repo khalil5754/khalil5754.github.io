@@ -93,7 +93,7 @@ ON cte_homeruns.playerID = cte_salaries.playerID
 ORDER BY cte_homeruns.avg_homeruns DESC;
 
 ```
-This code uses a CTE to first filter out any records with invalid birthdates by casting the birthdate column as a date datatype using the CAST() function and then using the TRY_CONVERT() function to determine if the cast was successful. If the cast was successful, the record is included in the main query, which pulls data from the CTE. The cte_salaries query simply exists to calculate the SUM of each player's career earnings. Finally, we select all columns from the PlayerStats CTE and order the results by the average home runs in descending order.
+This code uses a CTE to first filter out any records with invalid birthdates by casting the birthdate column as a date datatype using the TRY_CONVERT() function to determine if the cast was successful. If the cast was successful, the record is included in the main query, which pulls data from the CTE. The cte_salaries query simply exists to calculate the SUM of each player's career earnings. Finally, we select all columns from the PlayerStats CTE and order the results by the average home runs in descending order.
 
 To improve performance, we can also add indexes on the batting and salaries tables on the playerID and year columns, as these are used in the WHERE clauses for filtering the data. For example, we can create the following indexes:
 
