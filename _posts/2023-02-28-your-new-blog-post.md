@@ -58,7 +58,7 @@ CREATE INDEX idx_total_purchase ON TotalPurchase (Customers);
 Important to note is that while indexes do increase performance, there are still some drawbacks to consider. Indexing requires more storage space for our newly created nodes, and they will also create a slight slowdown in write speed.
 
 
-## Using SQL Server's Unique Merge Function
+##SQL Server's Unique Merge Function
 
 SQL Server and MySQL share many similarities - their differences mainly come from scalability (SQL Server scales better) and security wherein SQL Server is also inherently more secure due to built-in encryption and role-based access control. There are small functionality differences, such as the use of a MERGE command in MS SQL which can perform INSERT, UPDATE, and DELETE functions in just one line. The syntax differences are relatively small - LIMIT in MySQL is TOP in MS SQL and instead of CAST, MS SQL uses TRY_CONVERT. Overall for an enterprise focused on security, performance, and scalability, MS SQL is likely the right choice. 
 
@@ -73,9 +73,9 @@ Let's see what we can do using the power of Common Table Expressions:
 ```
 WITH cte_homeruns AS (
     SELECT playerID, 
-           AVG(NumberOfHomeruns) AS avg_homeruns 
+           SUM(NumberOfHomeruns) AS sum_homeruns 
     FROM batting
-    WHERE TRY_CONVERT(int, year) > 1950 
+    WHERE TRY_CONVERT(int, year) > 1985
     GROUP BY playerID
 ),
 cte_salaries AS (
@@ -85,12 +85,12 @@ cte_salaries AS (
     GROUP BY playerID
 )
 SELECT cte_homeruns.playerID,
-       cte_homeruns.avg_homeruns,
+       cte_homeruns.sum_homeruns,
        cte_salaries.total_salary
 FROM cte_homeruns
 INNER JOIN cte_salaries
 ON cte_homeruns.playerID = cte_salaries.playerID
-ORDER BY cte_homeruns.avg_homeruns DESC;
+ORDER BY cte_homeruns.sum_homeruns DESC;
 
 ```
 This code uses a CTE to first filter out any records with invalid birthdates by casting the birthdate column as a date datatype using the TRY_CONVERT() function to determine if the cast was successful. If the cast was successful, the record is included in the main query, which pulls data from the CTE. The cte_salaries query simply exists to calculate the SUM of each player's career earnings. Finally, we select all columns from the PlayerStats CTE and order the results by the average home runs in descending order.
