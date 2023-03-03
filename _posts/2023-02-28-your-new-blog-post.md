@@ -116,9 +116,9 @@ Instead of committing to SUMS of values, let us work with averages. Namely: Aver
 
 ![Screenshot 2023-03-02 at 9 55 52 PM](https://user-images.githubusercontent.com/44441178/222620215-a03b7d53-eba2-4609-9530-55bb7c82ddaf.png)
 
-Much better. Remember to always question your own approach if things don't seem right! There's no shame in catching a mistake. 
+Much better. Remember to always question your own approach if things don't seem right! There's no shame in catching a mistake. In case you were curious, I used slicers in Power BI to only target years after 1984 and had the report's filters exclude any batters who hadn't scored a single home run.
 
-In the next section of this blog we'll be further diving into some baseball datasets and using some more powerful queries and Power BI tools to manipulate and pull more actionable data. Stay tuned for an update this week!
+In the next section of this blog we'll be further diving into some baseball datasets and using some more powerful Power BI tools such as DAX functions to manipulate and pull more actionable data. Stay tuned for an update this week!
 
 
 Thanks for reading,
