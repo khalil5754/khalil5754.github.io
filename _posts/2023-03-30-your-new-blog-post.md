@@ -16,9 +16,43 @@ import "fmt"
 
 func main() {
 	var number int = 299
+	number = number + 1
 	fmt.Println(number)
 }
 
 ```
+
+"fmt" is a package in Go's standard library that provides functionality for formatting and printing text. Things like print statements and specific formatting is done using fmt. In the above code block, the variable "number" was declared as an integer 
+
+
 # Explicit Vs. Implicit 
   
+In the above code block is an example of an explicit definition of a variable. That is, we've told Golang _explicityly_ what type of variable "number" should be. However, if we drop the "int" and just have golang decide on a type for us, this is called an _implicit_ definition. For example:
+
+```
+func main() {
+	var number = 299
+	fmt.Printf("%T", number)
+}
+```
+
+Using "Printf" tells Go that we want it to print formatting, while "%T" tells it to give us the type of the variable we've passed it - which in this case is "number". Go guesses the type is an int, of course. If we were to add quotation marks around the integer, then it would surely assume it's a string!
+
+There is an even easier way to declare a variable in Golang using what is called an expression assignment operator or more preferably, the walrus operator. While I'm showing you that I'll also throw a basic if-else statement into the mix to show you how we can use printf, as well as to show basic syntax in Go.
+
+```
+func main() {
+	height := 149
+	
+	if height > 150 {
+		fmt.Println("You are tall enough to ride")
+	} else {
+		fmt.Printf("You are %dcm too short to ride", 150-height)
+	}
+	
+}
+```
+Here we have a basic walrus operator wherein we implicitly declare and set a variable "height". If the patron's height is greater than 150cm, they are able to ride. Otherwise, the else statement tells them how many centimetres too short they are from being able to ride. This is done using %d to pass some basic arithmetic to our print statement. 
+
+
+
