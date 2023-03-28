@@ -55,4 +55,33 @@ func main() {
 Here we have a basic walrus operator wherein we implicitly declare and set a variable "height". If the patron's height is greater than 150cm, they are able to ride. Otherwise, the else statement tells them how many centimetres too short they are from being able to ride. This is done using %d to pass some basic arithmetic to our print statement. 
 
 
+## Pointers
 
+Just like C, pointers are a big part of what makes Go so powerful. We use the ampersand "&" to denote a pointer and asterisk "*" to dereference a pointer.
+
+For example, say we had the below program and we hit run - what do you expect to happen? If you think it's going to print "2", you'd be wrong. What it actually does is print the location of where the value has been stored. 
+
+```
+package main
+import "fmt"
+
+func main() {
+	x := "testing"
+	y := &x
+	fmt.Println(y)
+}
+> 0xc0000100a0
+```
+
+When we use &, we're telling Go we want to access the _location on our memory_ that variable x is stored. However, if we add our dereference operator * in front of y as such: 
+
+```
+func main() {
+	x := "testing"
+	y := &x
+	fmt.Println(*y)
+}
+> testing
+```
+
+We get the actual value being stored at the location on our memory.
