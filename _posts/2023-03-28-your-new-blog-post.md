@@ -1,8 +1,8 @@
-# Using Stored Procedures, Imputation, Variables, and While loops in SQL Server.
+# Using Stored Procedures, Window Functions, Variables, Imputation, and Loops in SQL Server.
 
 Many of SQL's most useful tools are much less well known than one would expect. 
 
-### Working with NULL values.
+## Working With NULL Values (Imputation).
 In this blog post I'd like to get progressively more complex and interesting as we get deeper in the post. So before we get into COALESCE or the even more interesting stored procedures, let me show you one very easy way to replace a singular column's values with a value of your choice in the case that the value is missing. Using the ISNULL(x, 'y') function allows you to select a column _x_, and in the case that a value in column _x_ is null, it will be replaced with the value 'y'. Simple. You can also choose to replace the null value with another column in the same table. To do this, just ensure the second argument in the ISNULL() function is a column name (without quotes, of course). 
 
 Now, more interesting - using Coalesce! What happens if we'd like to replace NULL values in one column with another column's value, *and* we want to ensure the column we're using to replace the NULL values isn't itself a NULL value?
@@ -18,7 +18,7 @@ COALESCE(airport_code, city_name, province_name)
 This single line is checking for the first non-null value among three columns: "airport_code", "city_name", and "province_name".
 So if the "airport_code" column has a non-null value, its value will be returned. If "airport_code" is null, the function will check if "city_name" has a non-null value and return that. If both "airport_code" and "city_name" are null, it will check for a non-null value in the "province_name" column and return that.
 
-### Variables & While Loops
+## Variables & While Loops
 Variables can be immensely useful in SQL, and they're very easy to use. To declare and set a variable:
 
 ```
@@ -62,4 +62,24 @@ END
 
 First, I think it's fairly easy to tell what's going on in the above code if you've had practically any exposure to programming. That being said, the BREAK command is unnecessary and just serves to show you that the while loop can be broken before it finishes its loop.
 
-### Stored Procedures
+## Window Functions 
+
+Window functions in SQL are a powerful tool for data scientist that allow for the calculation of aggregate functions over a specific window of rows simultaneously with a main query. They can provide additional insights into data such as calculating moving averages. One example of a use-case for window functions is to calculate the moving average of sales over a period of time, allowing businesses to track trends and make informed decisions.
+
+The syntax for Window functions in SQL is very specific and must always be written out fully:
+
+```
+OVER (PARTITION BY SalesYear ORDER BY SalesYear)
+```
+The OVER clause creates the window, while PARTITION BY tells us the slice of the table we want to work with. Lastly, ORDER BY of course takes care of the order of the results. There are already some very useful pre-built functions baked into SQL, such as SUM() or RANK().
+
+An important set of window functions to remember are LEAD() and LAG(). Lead can peek and pull the next row's data (very difficult without a window function) while LAG() pulls the previous row's data. For example, if we had a table of orders with columns for the customer ID and the order's date, we could use the following code to pull a customer's previous order date:
+
+```
+SELECT CustomerID, OrderDate, 
+       LAG(OrderDate) OVER (PARTITION BY CustomerID ORDER BY OrderDate) AS previousorder
+FROM orders
+```
+This will return a new column called "previousorder" which solely returns the customer's most recent order. Since we're partitioning by each customer, SQL will only show us the results for one customer at a time
+
+## Stored Procedures
