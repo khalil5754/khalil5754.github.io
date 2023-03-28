@@ -1,4 +1,4 @@
-# Using Stored Procedures, Window Functions, Variables, Imputation, and Loops in SQL Server.
+# Using Window Functions, Variables, Date Manipulation, Imputation, and Loops in SQL Server.
 
 Many of SQL's most useful tools are much less well known than one would expect. 
 
@@ -82,4 +82,41 @@ FROM orders
 ```
 This will return a new column called "previousorder" which solely returns the customer's most recent order. Since we're partitioning by each customer, SQL will only show us the results for one customer at a time
 
-## Stored Procedures
+## Date Functions
+
+One difference in the syntax between SQL Server and other SQL languages is the way they handle dates converting types. For example, in MySQL one would use CAST(), but in SQL Server we use CONVERT(). CONVERT takes two arguments. The first is the data type we'd like to convert to, while the second is the name of the column you want to convert. For example, say you want to figure out how many orders your company is getting per day but the column "OrderDate" is an annoyingly long date-time type that you'd need to drop the time from in order to use GROUP BY or just because it's an eyesore:
+
+```
+SELECT 
+  CONVERT(DATE, OrderDate), 
+  SELECT(*)
+  
+FROM orders
+
+GROUP BY CONVERT(DATE, OrdertDate)
+```
+
+Now let's do something more fun with dates - pretend we sell ouija boards. Using DATEPART() allows us to pull a subset of the date of our choice. For example, let's see if we can figure out how many orders we got on the 13th day of each month to attempt (poorly) to figure how many of our customers are superstitious, and how many are not.
+
+```
+SELECT
+	COUNT(OrderID) AS OrdersPlaced,
+    "StartDate" = CASE WHEN DATEPART(DAY, OrderDate) = 13 THEN 'Non-superstitious'
+					   WHEN DATEPART(DAY, OrderDate) > 0 THEN 'Superstitious' END
+FROM orders
+GROUP BY
+	CASE WHEN DATEPART(DAY, OrderDate) = 13 THEN 'Non-superstitious'
+					   WHEN DATEPART(DAY, OrderDate) > 0 THEN 'Superstitious' END
+```            
+
+If we wanted to figure out how many hours people spend on our website per week, we can combine two other functions - DATENAME() and DATEDIFF(). DATENAME serves a similar function as DATEPART, in that it extracts part of a date. However, DATENAME returns a character string that represents a specific part of a date or time value, while DATEPART returns an integer value that represents a specific part of a date or time value. Both functions can be useful depending on what you want to do with the extracted value.
+
+
+```
+SELECT
+    DATENAME(weekday, OrderDate) AS DayofWeek,
+    SUM(DATEDIFF(SECOND, StartDate, EndDate))/3600 AS TotalTripHours
+FROM CapitalBikeShare
+GROUP BY DATENAME(weekday, StartDate)
+ORDER BY TotalTripHours
+```
