@@ -60,7 +60,24 @@ WHILE @instance < 5
 END
 ```
 
-First, I think it's fairly easy to tell what's going on in the above code if you've had practically any exposure to programming. That being said, the BREAK command is unnecessary and just serves to show you that the while loop can be broken before it finishes its loop.
+It's fairly easy to tell what's going on in the above code if you've had practically any exposure to programming. That being said, the BREAK command is unnecessary and just serves to show you that the while loop can be broken before it finishes its loop.
+
+Variables aren't limited to an explicit assignment; you can also set a variable equal to a SELECT statement! If we wanted to declare a variable for an orderdate, but we aren't quite sure what the order date is, you can do something like this: 
+
+```
+DECLARE @OrderDate as date
+SET 
+	@OrderDate = (
+		SELECT TOP 1 OrderDate
+		FROM orders
+		ORDER BY date
+		);
+		
+DECLARE @OrderDateTime as datetime
+SET 
+	@OrderTime =  
+```
+
 
 ## Window Functions 
 
@@ -84,7 +101,7 @@ This will return a new column called "previousorder" which solely returns the cu
 
 ## Date Functions
 
-One difference in the syntax between SQL Server and other SQL languages is the way they handle dates converting types. For example, in MySQL one would use CAST(), but in SQL Server we use CONVERT(). CONVERT takes two arguments. The first is the data type we'd like to convert to, while the second is the name of the column you want to convert. For example, say you want to figure out how many orders your company is getting per day but the column "OrderDate" is an annoyingly long date-time type that you'd need to drop the time from in order to use GROUP BY or just because it's an eyesore:
+One difference in the syntax between SQL Server and other SQL languages is the way they handle dates converting types. For example, in MySQL one could only use CAST(), but in SQL Server we can also use CONVERT(). CONVERT takes two arguments. The first is the data type we'd like to convert to, while the second is the name of the column you want to convert. For example, say you want to figure out how many orders your company is getting per day but the column "OrderDate" is an annoyingly long date-time type that you'd need to drop the time from in order to use GROUP BY or just because it's an eyesore:
 
 ```
 SELECT 
@@ -112,11 +129,19 @@ GROUP BY
 If we wanted to figure out how many hours people spend on our website per week, we can combine two other functions - DATENAME() and DATEDIFF(). DATENAME serves a similar function as DATEPART, in that it extracts part of a date. However, DATENAME returns a character string that represents a specific part of a date or time value, while DATEPART returns an integer value that represents a specific part of a date or time value. Both functions can be useful depending on what you want to do with the extracted value.
 
 
+SELECT GETDATE() is a crucial command you'll need for the next blog post (which will be all about Stored Procedures). This returns the current datetime from your computer, and is much more accurate and consistent than selecting this yourself. A good-practice way to use GETDATE() is to set it to a variable right away:
+
 ```
-SELECT
-    DATENAME(weekday, OrderDate) AS DayofWeek,
-    SUM(DATEDIFF(SECOND, StartDate, EndDate))/3600 AS TotalTripHours
-FROM CapitalBikeShare
-GROUP BY DATENAME(weekday, StartDate)
-ORDER BY TotalTripHours
+DECLARE @CurrentDateTime datetime
+SET @CurrentDateTime = GETDATE()
 ```
+
+Say we wanted to take this a step further and get the number of orders from yesterday's date. For this we can use DATEADD().
+
+```
+SELECT COUNT(*)
+FROM orders
+WHERE CAST(OrderDate AS date) = DATEADD(d,-1,GETDATE())
+```
+The WHERE clause casts OrderDate as a date type, then ensures that it's equal to yesterday's date. The syntax for DATEADD is first the part of the date you want to add/subtract to (in this case "d" which is day), then the amount you want to add/subtract, and finally the date you would like to perform this operation on.
+
