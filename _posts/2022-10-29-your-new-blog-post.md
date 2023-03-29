@@ -40,7 +40,7 @@ INSERT INTO `Course` (`CNum`, `Title`, `Dept`) VALUES
 After the INSERT INTO command, you simply tell MySQL which table you want to insert values into, explain which columns these values will be inserted into seperated by a comma, then call VALUES.
 In this case, 'Cnum' (course number) is first, so the first value before the comma seperator in each list will be inserted into the 'Course' Database under the CNum coloumn. MySQL parses through each list and inserts the values accordingly.
 
-We have 7 courses listed in no particular order (MySQL can order these with ease if we so request, but more on that later.
+We have 7 courses listed in no particular order (MySQL can order these with ease if we so request, but more on that later).
 This time we've _really_ created a table using SQL!
 
 To create a data_base_ let us now create two more tables, one for the students at the University, and one table indicating which courses each student is taking, as well as their grades and the semester they took each course.
