@@ -8,9 +8,9 @@ however, is how to implement these things in Python (or any language for that ma
 going to go through each one (not incredibly detailed, as I don't want to bore you).
 
 ### Palindrome Number:
-  ####Given an integer x, return true if x is a palindrome, and false otherwise.
+  #### Given an integer x, return true if x is a palindrome, and false otherwise.
 
-  This one is very simple, so I won't waste too much time on it. We use a stack, but we don't even pop anything! 
+This one is very simple, so I won't waste too much time on it. We use a stack, but we don't even pop anything! 
   
   There's a few ways we can find if x is a valid palindrome. Let's go over 2 of them quickly.
 
