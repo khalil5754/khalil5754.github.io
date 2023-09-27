@@ -33,6 +33,9 @@ XGBoost also needs a training loss function _L_, which is a function that compar
 
 The root mean squared error (RMSE) is also common for the training loss function. Now that that's out of the way, let's get to work.
 
+Implementing XGBoost is as simple as a pip install and an xgboost import. From there, you can simply tune your hyperparameters by using a randomized grid search to find the optimal hyperparameters given the number of cross-folds you want, and the number of permutations you want per cross-fold. 
 
+I will go over this in more detail in a future post but for now, after just a quick intro - logging off.
 
-## Implementing XGBoost
+- KhalilTheStatsGuy
+
