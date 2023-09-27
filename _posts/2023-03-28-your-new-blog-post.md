@@ -1,4 +1,4 @@
-# Using Window Functions, Variables, Date Manipulation, Imputation, and Loops in SQL Server.
+# Using Window Functions, Variables, Date Manipulation, Imputation, and Loops in SQL Server
 
 Many of SQL's most useful tools are much less well known than one would expect. 
 
