@@ -87,3 +87,5 @@ func main() {
 We get the actual value being stored at the location on our memory.
 
 This was just a bit of a passion project for me, as I've really wanted to learn Go for a long time. I'm enjoying it a ton, but my Master's degree starts in a few days so I think I'll be focusing a lot more on Python and SQL than Golang, but I'll be back to give you guys more info before you know it :)
+
+- KhalilTheStatsGuy
