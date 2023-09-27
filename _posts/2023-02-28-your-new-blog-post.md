@@ -1,4 +1,4 @@
-## Using MS SQL and Power BI: The Correlation Between Home Runs and Total Career Earnings [In Progress].
+## Using MS SQL and Power BI: The Correlation Between Home Runs and Total Career Earnings
 
 ### What is Normalization?
 
