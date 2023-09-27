@@ -1,4 +1,4 @@
-###### Why XGBoost is The Best Machine Learning Tool 
+# Why XGBoost is The Best Machine Learning Tool (Intro)
 
 # What is XGBoost?
 If, like me, you intend to become a Kaggle grandmaster then you've come to the right place. XGBoost is the undisputed king of the vast majority of Data Science and Machine Learning problems - winning 16 of the 29 published Kaggle challenges in 2015, less than a year after the infamous model was released. Of these 16, 8 teams=used *only* XGBoost to train their  
