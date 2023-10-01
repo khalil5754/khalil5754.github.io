@@ -15,6 +15,7 @@ This means I'll be architecting the system design, building the DBs, setting up 
 Okay, let's get started.
 
 
+
 #### Groundwork
 
 To lay the groundwork for this project I'm first going to be using a weather API from [open-meteo.com](https://open-meteo.com). The first time we load this data in to look at it, we simply call the API with Python (you can just use your browser or "curl"
@@ -49,6 +50,8 @@ that we can have our graphs show historical weather data for comparison with the
 We also want to build an ML forecasting model but that will likely be out of the scope of this post, but tune in for a 
 future post about it.
 
+
+
 #### Parsing, Lambda, and Aurora Serverless
 
 Okay, now I have to quickly explain why I chose Aurora Serverless over RDS or Redshift. This comes down to exactly one reason: cost.
@@ -57,3 +60,35 @@ This comes at a cost of slower response time if it's the first time someone quer
 willing to pay to avoid the price of RDS and Redshift (get it?).
 
 Let's parse the data. 
+
+First, You'll notice that our "weather_data" dictionary has a key 'daily', which itself is another dictionary. Within this 'daily' dictionary, there are other keys like 'time', 'weathercode', 'temperature_2m_max', and so on. Each of these keys maps to a list.
+
+The key idea is that these lists are parallel. This means the first element in the 'time' list corresponds to the same day as the first element in the 'weathercode' list, 'temperature_2m_max' list, and so on.
+
+What does this mean? We can use a for loop to parse!
+Specifically, if we do:
+
+```
+for i in range(len(weather_data['daily']['time'])):
+```
+
+This will make it such that we're setting up a loop that iterates once for each element in the 'time' list. The iterator 'i' 
+takes on values from '0' to the lenth of the dictionary.
+
+Here's the full for loop:
+
+```
+for i in range(len(weather_data['daily']['time'])):
+            date = weather_data['daily']['time'][i]
+            weathercode = weather_data['daily']['weathercode'][i] or 0
+            temperature_max = weather_data['daily']['temperature_2m_max'][i] or 0.0
+            temperature_min = weather_data['daily']['temperature_2m_min'][i] or 0.0
+            uv_index_max = weather_data['daily']['uv_index_max'][i] or 0.0
+            precipitation_sum = weather_data['daily']['precipitation_sum'][i] or 0.0
+```
+
+
+
+Inside the loop when we access weather_data['daily']['time'][i], we're getting the i-th element of the 'time' list. Since the data is parallel and the one thing that should never be or end early is the date, this is the safest bet to iterate our loop on! So on the first loop iteration (when i is 0), this would get us '2022-09-30'. On the second iteration (when i is 1), it would get us '2022-10-01', and so forth. Also, this gets us the same parallel data per dictionary.
+
+
