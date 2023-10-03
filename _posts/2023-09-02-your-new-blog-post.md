@@ -1,4 +1,4 @@
-# Using Golang (Go) With Databases
+# Golang (Go) With Databases
   While Python has been the dominant language in the data science community for many years, Go (also known as Golang) is emerging as a powerful and versatile language for data scientists.
 
 Go is a statically typed, compiled language that was developed by Google in 2009. It is known for its simplicity, concurrency, and performance, making it well-suited for building scalable and efficient systems. While Go is not as popular in the data science community as Python, it has several advantages that make it a useful tool for data scientists.
