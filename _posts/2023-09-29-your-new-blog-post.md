@@ -1,4 +1,4 @@
-# PROJECT: Building PlantTime.com - a Plant Recommendation System (Using a Weather API, AWS Aurora Serverless, Cloud-Formation, Lambda, and a CI/CD Github Workflow)
+# PROJECT: Building PlantTime.com - a Plant Recommendation System (Using a Weather API, AWS Aurora Serverless, Cloudformation, Lambda, and a CI/CD Github Workflow)
 
 PlantTime URL: xxx (Front-End not yet finished)
 
@@ -7,13 +7,13 @@ PlantTime URL: xxx (Front-End not yet finished)
 First thing's first, what do we want to build? I don't want to spend too much time on this part as the point of this post is to document the building process. 
 
 Myself and my Front-end developer friend had a great idea for a website we'd both enjoy wherein a user can enter their location, the date they want to grow a plant and the soil they have. The website will recommend a plant to them based on a multi-dimensional
-ML model, built by yours truly, taking into account precipitation, UV index, elevation, soil type, season, and forecasted (by the model) weather! The site will also display a "Plant of the Week" and the back-end data will be used to build 1-2 graphs
-from the data.
+ML model, built by yours truly, taking into account precipitation, UV index, elevation, soil type, season, and forecasted (by the model) weather! The site will also display a "Plant of the Week" and the back-end data will be used to build 1-2 graphs from the data.
 
 My friend is a very talented front-end dev but he knows nothing about back-end work, so I'll be taking care of anything involving the back-end systems.
-This means I'll be architecting the system design, building the DBs, setting up endpoints and 
-Okay, let's get started.
+This means I'll be architecting the system design, building the Database (with high-availability and scalability), setting up endpoints, and automating API querying!
 
+
+Okay, let's get started.
 
 
 #### Groundwork
