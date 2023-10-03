@@ -1,16 +1,16 @@
-# PROJECT: Building PlantTime.com - a Plant Recommendation System (Using a Weather API, AWS Aurora Serverless, Cloudformation, Lambda, and a CI/CD Github Workflow)
+# PROJECT: Building PlantTime.com - a Plant Recommendation System (Using AWS DynamoDB, Cloudformation, Lambda, and a CI/CD Github Workflow)
 
-PlantTime URL: xxx (Front-End not yet finished)
+PlantTime URL: xxx (Front-end not yet finished)
 
 ##### Preliminary
 
 First thing's first, what do we want to build? I don't want to spend too much time on this part as the point of this post is to document the building process. 
 
-Myself and my Front-end developer friend had a great idea for a website we'd both enjoy wherein a user can enter their location, the date they want to grow a plant and the soil they have. The website will recommend a plant to them based on a multi-dimensional
+Myself and my front-end developer friend had a great idea for a website we'd both enjoy wherein a user can enter their location, the date they want to begin to grow a plant and the soil they have. The website will recommend a plant to them based on a multi-dimensional
 ML model, built by yours truly, taking into account precipitation, UV index, elevation, soil type, season, and forecasted (by the model) weather! The site will also display a "Plant of the Week" and the back-end data will be used to build 1-2 graphs from the data.
 
 My friend is a very talented front-end dev but he knows nothing about back-end work, so I'll be taking care of anything involving the back-end systems.
-This means I'll be architecting the system design, building the Database (with high-availability and scalability), setting up endpoints, and automating API querying!
+This means I'll be **architecting the system design, building the database (with high-availability and scalability), setting up endpoints, and automating API querying!**
 
 
 Okay, let's get started.
@@ -52,16 +52,16 @@ future post about it.
 
 
 
-#### Parsing, Lambda, and Aurora Serverless
+#### Parsing, Lambda, and DynamoDB
 
-Okay, now I have to quickly explain why I chose Aurora Serverless over RDS or Redshift. This comes down to exactly one reason: cost.
-While RDS and Redshift charge no matter how much you're using the DB, Aurora Serverless scales down to 0 if no-one is using it.
+Okay, now I have to quickly explain why I chose DynamoDB over RDS or Redshift. This comes down to exactly one reason: cost.
+While RDS and Redshift charge no matter how much you're using the DB, DynamoDB scales down to 0 if no-one is using it.
 This comes at a cost of slower response time if it's the first time someone queries the website in a while, but this is a price I'm
 willing to pay to avoid the price of RDS and Redshift (get it?).
 
 Let's parse the data. 
 
-First, You'll notice that our "weather_data" dictionary has a key 'daily', which itself is another dictionary. Within this 'daily' dictionary, there are other keys like 'time', 'weathercode', 'temperature_2m_max', and so on. Each of these keys maps to a list.
+First, You'll notice that our "weather_data" dictionary has a key called 'daily', which itself is another dictionary. Within this 'daily' dictionary, there are other keys like 'time', 'weathercode', 'temperature_2m_max', and so on. Each of these keys maps to a list.
 
 The key idea is that these lists are parallel. This means the first element in the 'time' list corresponds to the same day as the first element in the 'weathercode' list, 'temperature_2m_max' list, and so on.
 
@@ -91,4 +91,4 @@ for i in range(len(weather_data['daily']['time'])):
 
 Inside the loop when we access weather_data['daily']['time'][i], we're getting the i-th element of the 'time' list. Since the data is parallel and the one thing that should never be or end early is the date, this is the safest bet to iterate our loop on! So on the first loop iteration (when i is 0), this would get us '2022-09-30'. On the second iteration (when i is 1), it would get us '2022-10-01', and so forth. Also, this gets us the same parallel data per dictionary.
 
-
+Alright, that's the basics of our Lambda function for parsing the weather data from the API. Of course there's more to the code than this, but that's the meat and potatoes. Now we can Zip this file, upload it into an S3 bucket and build our Cloudformation YAML template. More on that in the next section. **Note:** For the zip file, what I did is use a git environment in my terminal for version control, so that I can keep track of my changes and revert back to an old version if something goes wrong. You don't have to do this!
