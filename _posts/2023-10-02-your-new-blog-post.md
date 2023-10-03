@@ -1,5 +1,8 @@
 # PROJECT: Building PlantTime.com - a Plant Recommendation System (Using AWS DynamoDB, Cloudformation, Lambda, and a CI/CD Github Workflow)
 
+
+**WIP**
+
 PlantTime URL: xxx (Front-end not yet finished)
 
 ##### Preliminary
@@ -91,4 +94,10 @@ for i in range(len(weather_data['daily']['time'])):
 
 Inside the loop when we access weather_data['daily']['time'][i], we're getting the i-th element of the 'time' list. Since the data is parallel and the one thing that should never be or end early is the date, this is the safest bet to iterate our loop on! So on the first loop iteration (when i is 0), this would get us '2022-09-30'. On the second iteration (when i is 1), it would get us '2022-10-01', and so forth. Also, this gets us the same parallel data per dictionary.
 
-Alright, that's the basics of our Lambda function for parsing the weather data from the API. Of course there's more to the code than this, but that's the meat and potatoes. Now we can Zip this file, upload it into an S3 bucket and build our Cloudformation YAML template. More on that in the next section. **Note:** For the zip file, what I did is use a git environment in my terminal for version control, so that I can keep track of my changes and revert back to an old version if something goes wrong. You don't have to do this!
+Alright, that's the basics of our Lambda function for parsing the weather data from the API. Of course there's more to the code than this, but that's the meat and potatoes. Now we can Zip this file, upload it into an S3 bucket and build our Cloudformation YAML template. More on that in the next section. **Note:** For the zip file, what I did is use a git environment in my terminal for version control, so that I can keep track of my changes and revert back to an old version if something goes wrong. You don't have to do this, but it helps in case you make a mistake.
+
+
+
+
+
+
