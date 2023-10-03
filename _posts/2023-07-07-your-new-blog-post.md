@@ -120,7 +120,7 @@ Where Vt is the first time-series VIX Levels, and Ft is the second time-series I
 
 This is the cross-correlation equation of a discrete finite series.
 
-To determine where cross-correlation values are significant, the equation 1.96/(√n) is used, a critical value of 1.96 is used indicating a 95% confidence interval. 
+To determine where cross-correlation values are significant, the equation 1.96/(√n) is used and a critical value of 1.96 is used indicating a 95% confidence interval. 
 
 And, in case you were truly statistically curious: 
 
