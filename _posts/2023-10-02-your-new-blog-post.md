@@ -1,11 +1,11 @@
 # PROJECT: Building PlantTime.com - a Plant Recommendation System (Using AWS DynamoDB, Cloudformation, Lambda, and a CI/CD Github Workflow)
 
 
-**WIP**
+**This is a WIP**
 
 PlantTime URL: xxx (Front-end not yet finished)
 
-##### Preliminary
+#### Preliminary
 
 First thing's first, what do we want to build? I don't want to spend too much time on this part as the point of this post is to document the building process. 
 
