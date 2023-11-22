@@ -4,7 +4,7 @@
 **This is a WIP**
 
 
-PlantTime URL: xxx (Front-end not yet finished)
+PlantTime URL: planttime.ca (Front-end deployed Nov. 30, 2023)
 
 #### Preliminary
 
@@ -97,8 +97,165 @@ Inside the loop when we access weather_data['daily']['time'][i], we're getting t
 
 Alright, so that's the basics of our Lambda function for parsing the weather data from the API. Of course there's more to the code than this, but that's the meat and potatoes. Now we can Zip this file, upload it into an S3 bucket and build our Cloudformation YAML template. More on that in the next section. **Note:** For the zip file, what I did is use a git environment in my terminal for version control, so that I can keep track of my changes and revert back to an old version if something goes wrong. You don't have to do this, but it helps in case you make a mistake.
 
-Now, let's continue to the next section:
+Now, let's talk about CloudFormation:
 
 
+#### CloudFormation
 
+CloudFormation is an incredibly powerful tool which allows us to use a simple YAML file (or a JSON) to essentially build and deploy our app automatically. This allows us to migrate to other AWS accounts (or other cloud service providers) with ease, since our YAML can be deployed anywhere. We can feed CloudFormation a YAML such as this one, which "executes" our Lambda functions from a zip file in our S3 bucket:
+
+```
+Resources:
+
+  # Lambda IAM Role
+  LambdaExecutionRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: AccessDynamoDB
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                Resource:
+                  Fn::Sub: arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/weather_data
+
+  # Lambda Function to Update Weather Data
+  WeatherDataUpdaterFunction:
+    Type: 'AWS::Lambda::Function'
+    Properties:
+      Handler: 'weather_parser.lambda_handler' 
+      Role:
+        Fn::GetAtt:
+          - LambdaExecutionRole
+          - Arn
+      Code:
+        S3Bucket: 'weatherparsing'
+        S3Key: 'function.zip'
+      Runtime: 'python3.8' 
+      Timeout: 15
+      MemorySize: 256
+
+  # CloudWatch Event Rule
+  WeatherEventRule:
+    Type: 'AWS::Events::Rule'
+    Properties: 
+      Description: 'Trigger the weather Lambda function every 7 days'
+      ScheduleExpression: 'rate(7 days)'
+      State: 'ENABLED'
+      Targets: 
+        - 
+          Arn: 
+            Fn::GetAtt: 
+              - "WeatherDataUpdaterFunction"
+              - "Arn"
+          Id: "TargetFunctionV1"
+
+  # Permission for the CloudWatch Event Rule to trigger Lambda Function
+  LambdaInvokePermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties: 
+      Action: 'lambda:InvokeFunction'
+      FunctionName: 
+        Ref: "WeatherDataUpdaterFunction"
+      Principal: 'events.amazonaws.com'
+      SourceArn: 
+        Fn::GetAtt: 
+          - "WeatherEventRule"
+          - "Arn"
+
+
+```
+
+Just like that, CloudWatch will execute the YAML, spinning up the AWS services we need quickly and almost simultaneously. That being said, it's *extremely* important to ensure the YAML file is correct prior to running it to avoid spinning up an AWS service you don't mean to. Been there - it's an expensive mistake. 
+
+What does our YAML do after executing the S3 zipped up Lambda functions? Something very cool. Not only does it spin up our AWS services, but it also automatically deposits the output data into DynamoDB. It also set up an event rule for EventBridge for us, which is an automated script that runs upon some trigger. In this case, our trigger is simply a time-frame of 7 days. Perfect, every 7 days our weather data will update. I could have manually done this, but again, I want this to be as automated as possible. 
+
+Okay, now let's assume I got all this working on the first try (I totally did). Next, we can get to the fun part. We want to build some kind of recommendation algorithm to recommend plants based upon the user's location, the time of the year, the weather (specifically the sunlight), and a few other variables. To do this, there are many similarity equations or machine learning models to choose from.
+
+
+#### Cosine Similarity Recommendation System
+
+I had actually never heard about "Cosine Similarity" prior to researching how to accomplish our task. I stumbled upon a similarity measurement called cosine similarity - a measurement that quantifies the similarity between two or more vectors. The cosine similarity is the cosine of the angle between vectors and these vectors are typically non-zero within an inner product space. Frankly, this seemed way too easy. I almost didn't use it because I thought I wanted something more complicated but I soon realized that this was exactly what I was hoping for - and too simple is better than too complicated. 
+
+Here's the equation (from Wikipedia):
+
+![image](https://github.com/khalil5754/khalil5754.github.io/assets/44441178/2a716af2-c13c-4e89-86db-9e7ef436c6cc)
+
+
+Luckily for us, scikit-learn has a cosine similarity library! Unluckily for us, I want this code to be as fast and light as possible - and due to the simplicity of the formula and the large size of the scikit-learn library, this means I'm going to manually code cosine similarity. I turned something simple just a tad complicated :).
+
+Let's quickly go over the pre-processing steps to accomplish this:
+
+```
+# creating plants dataframe
+plants_response = plants_table.scan()
+plants_items = plants_response['Items']
+plants_df = pd.DataFrame(plants_items)
+
+watering_mapping = {
+    'Must dry between watering & Water only when dry': 0,
+    'Water only when dry & Must dry between watering': 0,
+    'Water when soil is half dry & Water only when dry': 0,
+    'Keep moist between watering & Can dry between watering': 1,
+    'Water when soil is half dry & Can dry between watering': 1,
+    'Keep moist between watering & Water when soil is half dry': 2,
+    'Water when soil is half dry & Change water regularly in the cup': 2,
+    'Change water regularly in the cup & Water when soil is half dry': 2,
+    'Keep moist between watering & Must not dry between watering': 2,
+}
+
+# apply the updated mapping to the 'Pruning' column
+plants_df['Watering'] = plants_df['Watering'].map(watering_mapping)
+
+
+pruning_mapping = {
+    'Never': 0,
+    'After blooming': 1,
+    'If needed': 1,
+    'Fall': 1
+}
+```
+
+We need numerical features for cosine similarity to work, so we map each categorical feature we need to a numerical value. In doing so, we have a little leeway in how we want to interpret each categorical value. For example, with regard to pruning, I've chosen to essentially have two groups: "needs pruning" and "does not need pruning". This was done for simplicity as we can determine if our users was a high-effort or low-effort plant, and the algorithm will not differentiate between these two groups. I've also consolidated some of the "watering" categories, to create just 3 groups: "rarely water", "water sometimes", and "water often". We can do this with any features, not necessarily just categorical features, for example, with regard to plant height we can do something like this to group the plants into "big", "medium", and "small". 
+
+```
+def classify_size(height):
+    if height <= 100:
+        return 0
+    elif 100 < height <= 500:
+        return 1
+    else:
+        return 2
+```
+
+What do we do next? Well we want to know the weather going forward, so we grab the future weather from today onward:
+
+```
+# query for Calgary weather from today onwards
+user_location = 'Calgary'
+today = datetime.now().strftime("%Y-%m-%d")  # Adjust date format as per your table
+weather_df = query_weather_data(user_location, today)
+
+# calculate user's weather preferences
+user_temperature_max = math.floor(weather_df['Temperature_max'].mean())
+user_temperature_min = math.floor(weather_df['Temperature_min'].mean())
+user_effort = 'medium'
+
+```
+
+This is a basic example which gives us the next 12 weeks' weather (predictive based on last year's averages) and a pre-input user location (this will be input manually by the user or automatically by their browser if they accept). We calculate their weather preferences and take the floor of the next 12 weeks' average max and min temperature to ensure the plant will survive the next few months.
+
+We now have a cosine-similarity ready dataset, the weather for the next 12 weeks, the user location, and their ideal effort level.
 
