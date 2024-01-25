@@ -4,7 +4,7 @@
 **This is a WIP**
 
 
-PlantTime URL: planttime.ca (Front-end deployed Nov. 30, 2023)
+PlantTime URL: planttime.ca (Front-end deployed Jan. 30, 2023)
 
 #### Preliminary
 
