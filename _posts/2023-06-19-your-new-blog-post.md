@@ -62,7 +62,7 @@ Now let's get to heaps!
     dict = {}
 
       for i in nums:
-        if i not in bict:
+        if i not in dict:
           dict[i] = 1
         else:
           dict[i] += 1
