@@ -1,7 +1,7 @@
 ## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
 For this post let's stick to a topic I know quite well and dive into...
 
-#### A quick and dirty Tableau analysis of my topic: Canada's dependency on Foreign Investment.
+#### A quick and dirty Tableau/Python analysis of my topic: Canada's dependency on Foreign Investment.
 
 ###### (Data sources are all from the OECD dataset accessible [here] (https://data.oecd.org/fdi/fdi-flows.htm))
 
@@ -11,11 +11,13 @@ To preface this post: the first step of any data analysis pipeline is to gather 
 
 ### How does Canadian Foreign Direct Investment (FDI) compare to the rest of the G7?
 
+
 Foreign Direct Investment is a significant driver of the Canadian economy. In 2022, among the G7 nations, Canada had the second-highest proportion of inward FDI flow as a percentage of GDP (See Figure 1). This ratio highlights the level of foreign investments in relation to the overall economic output of the country, showcasing the role of foreign capital in fueling economic activities. The Canadian government’s use of FDI cannot be understated, with industries and cities seeing tremendous growth as a result of generous policy geared toward promoting and maintaining FDI. Some research regarding FDI “heavy-hitters” rank global economies based on total inward FDI flow, or total stock. This is an inaccurate empirical measurement and statistically a poor method of analyzing economies which differ so significantly in scale. Canada, for example, has a GDP 1/20th the size of its southern neighbour, the United States, and a population just 11.5% the size. A more appropriate method of comparison is the percentage of its total GDP that an economy takes in as inward FDI flow. Of the developed world, the only country which allocates a higher percentage of its GDP to FDI than Canada is the United Kingdom.
 
 FDI inward flow in Canada equated to just over 72% of the country’s 2022 GDP, an important concern arises regarding whether a high GDP to FDI ratio exposes the host economy to increased economic vulnerability. Sharp changes in FDI inward flow (from henceforth referred to as FDI inflow) will have an impact on the Canadian economic landscape and could increase Canada’s economic vulnerability. We will explore this in further detail when we examine the VIX index.
 
 <img width="1499" alt="Screenshot 2024-02-14 at 11 56 15 AM" src="https://github.com/khalil5754/khalil5754.github.io/assets/44441178/6effdf37-02ed-4728-96ab-0f12962599f6">
+
 
 ###### Figure 1: FDI inward flow as a percentage of total GDP in 2022
 
@@ -23,6 +25,7 @@ FDI inward flow in Canada equated to just over 72% of the country’s 2022 GDP, 
 Obviously, from the above visualization it's clear Canada is one of the most FDI dependent countries in the G7. It’s also clear Canada has succeeded in attracting a significant amount of FDI to its economy, to the tune of approximately $0.72 for every dollar the country generates.
 
 But _why_ do FMNE (Foreign Multinational Enterprises) consistently choose Canada to set-up base?
+
 
 
 ### Well, for starters: Tertiary Education
@@ -34,11 +37,14 @@ To determine which country to select as a host country for FDI, enterprises cond
 
 Intuitively, attracting FMNEs begins with an educated populace because enterprises want to hire adaptable employees that can be trained and trusted to produce positive results. An OECD published study found that a highly educated populace is the single biggest attractor of FDI. Taking this into consideration, examining the top FDI destinations in the world’s adult education levels reveals Canada as the distinct leader in tertiary (post-secondary) education. 
 
+
 <img width="678" alt="image" src="https://user-images.githubusercontent.com/44441178/195230123-e5bc7bb1-6ce4-4b99-aa4b-9ba2199f54f8.png">
 
 ###### Figure 2: Tertiary Education as a Percentage of Population
 
+
 With such a significant discrepancy in tertiary education between Canada and the second-place United States, a clearer picture begins to form as to why the seemingly small Canadian economy can go pound-for-pound (or dollar-for-dollar) with economic heavy hitters like the United Kingdom and the United States with regard to FDI intake. Canada places a heavy emphasis on the education of its citizens and reaps the rewards a highly educated populace offers its constituents.
+
 
 
 ### Where is the FDI coming from?
@@ -52,15 +58,16 @@ Limiting FDI inflow to stable economies and trade allies reduces the risk of sud
 ###### Figure 3: Composition of Canadian FDI inflow by country.
 
 
+
 ### Canadian FDI and the VIX index - is there an obvious relationship?
 
 ##### VIX Data accessible [here](https://www.cboe.com/tradable_products/vix/vix_historical_data)
 
 The VIX market index was developed by the Chicago Board Options Exchange to track market uncertainty. It measures the market’s annualized implied volatility over the next 30 days. The VIX index’s 52-week high for each year will be used for this portion because taking the average yearly price of VIX makes it difficult to discern when a significant systemic shock has occurred. VIX is a forward-looking index calculated with a rolling 30-day window, meaning that in years where global shocks occur, VIX can spike and regress to the mean very quickly. It could also see small consistent rises because of S&P 500 companies’ earnings results, domestic interest rate hikes, as well as other economic factors across the stock market. A notable instance showcasing the importance of dates when the VIX peaks is when the index reached a 52-week high in October 2008, occurring during the global financial crisis and merely a month following the Lehman Brothers bankruptcy in September 2008. During this month, the VIX hit one of its historical highs, reflecting the substantial market uncertainty tied to the banking industry's financial turmoil and severe lack of market liquidity!
 
-[image]
 
 <img width="410" alt="image" src="https://github.com/khalil5754/khalil5754.github.io/assets/44441178/f59bae8a-c4fe-4dd0-b048-392c2215f6e9">
+
 
 
 It is difficult to see a relationship in this figure without using statistical analysis techniques to interpret the data due to the inherent time it takes for factors like global shocks or even market uncertainty to ripple through the economy and impact an investment as significant as FDI. To confidently interpret the data, statistical models are used to analyze linear time-series with a time-lag, such as a Granger causality test and cross-correlation methods. However, the two time-series graphs do follow a very similar pattern to each other.
