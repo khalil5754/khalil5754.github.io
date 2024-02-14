@@ -3,9 +3,7 @@ For this post let's stick to a topic I know quite well and dive into...
 
 #### A quick and dirty Tableau/Python analysis of my topic: Canada's dependency on Foreign Investment.
 
-###### (Data sources are all from the OECD dataset accessible [here] (https://data.oecd.org/fdi/fdi-flows.htm))
-
-To preface this post: the first step of any data analysis pipeline is to gather data from reputable sources (in this case the OECD), then clean the data using your method of choice (in this case using Python) _before_ engaging in any analysis. This post will be less of a tutorial and more of a short essay guided by insights gathered through Tableau. This is a very different style than the rest of my works, but I hope you enjoy it nonetheless!
+To preface this post: I wanted to look at Canadian Foreign Direct Investment and build a story by connecting it to other datasets. Data sources are all linked in their respective section - with the base dataset (FDI data) accessible [here] (https://data.oecd.org/fdi/fdi-flows.htm). The first step of any data analysis pipeline is to gather data from reputable sources (in this case the OECD, Statistics Canada, and the Chicago Board of Exchange), then clean the data using your method of choice (in this case using Python) _before_ engaging in any analysis. This post will be less of a tutorial and more of a short blog guided by insights gathered through Tableau. This is a very different style than the rest of my works, but I hope you enjoy it nonetheless!
 
 ##### Without further ado...
 
@@ -14,22 +12,23 @@ To preface this post: the first step of any data analysis pipeline is to gather 
 
 Foreign Direct Investment is a significant driver of the Canadian economy. In 2022, among the G7 nations, Canada had the second-highest proportion of inward FDI flow as a percentage of GDP (See Figure 1). This ratio highlights the level of foreign investments in relation to the overall economic output of the country, showcasing the role of foreign capital in fueling economic activities. The Canadian government’s use of FDI cannot be understated, with industries and cities seeing tremendous growth as a result of generous policy geared toward promoting and maintaining FDI. Some research regarding FDI “heavy-hitters” rank global economies based on total inward FDI flow, or total stock. This is an inaccurate empirical measurement and statistically a poor method of analyzing economies which differ so significantly in scale. Canada, for example, has a GDP 1/20th the size of its southern neighbour, the United States, and a population just 11.5% the size. A more appropriate method of comparison is the percentage of its total GDP that an economy takes in as inward FDI flow. Of the developed world, the only country which allocates a higher percentage of its GDP to FDI than Canada is the United Kingdom.
 
-FDI inward flow in Canada equated to just over 72% of the country’s 2022 GDP, an important concern arises regarding whether a high GDP to FDI ratio exposes the host economy to increased economic vulnerability. Sharp changes in FDI inward flow (from henceforth referred to as FDI inflow) will have an impact on the Canadian economic landscape and could increase Canada’s economic vulnerability. We will explore this in further detail when we examine the VIX index.
-
 <img width="1499" alt="Screenshot 2024-02-14 at 11 56 15 AM" src="https://github.com/khalil5754/khalil5754.github.io/assets/44441178/6effdf37-02ed-4728-96ab-0f12962599f6">
-
 
 ###### Figure 1: FDI inward flow as a percentage of total GDP in 2022
 
 
+FDI inward flow in Canada equated to just over 72% of the country’s 2022 GDP, an important concern arises regarding whether a high GDP to FDI ratio exposes the host economy to increased economic vulnerability. Sharp changes in FDI inward flow (from henceforth referred to as FDI inflow) will have an impact on the Canadian economic landscape and could increase Canada’s economic vulnerability. We will explore this in further detail when we examine the VIX index.
+
+
 Obviously, from the above visualization it's clear Canada is one of the most FDI dependent countries in the G7. It’s also clear Canada has succeeded in attracting a significant amount of FDI to its economy, to the tune of approximately $0.72 for every dollar the country generates.
 
-But _why_ do FMNE (Foreign Multinational Enterprises) consistently choose Canada to set-up base?
+**But _why_ do FMNE (Foreign Multinational Enterprises) consistently choose Canada to set-up base?**
 
 
 
 ### Well, for starters: Tertiary Education
 
+Data accessible [here](https://data.oecd.org/eduatt/population-with-tertiary-education.htm)
 
 While many global economies share Canada's desire to accept as much FDI as possible and thereby grow their economy, the Canadian economy is in a unique position as one of the most coveted destinations for foreign enterprises.
 
@@ -70,18 +69,20 @@ The VIX market index was developed by the Chicago Board Options Exchange to trac
 
 
 
-It is difficult to see a relationship in this figure without using statistical analysis techniques to interpret the data due to the inherent time it takes for factors like global shocks or even market uncertainty to ripple through the economy and impact an investment as significant as FDI. To confidently interpret the data, statistical models are used to analyze linear time-series with a time-lag, such as a Granger causality test and cross-correlation methods. However, the two time-series graphs do follow a very similar pattern to each other.
+It is difficult to see a relationship in this figure without using statistical analysis techniques to interpret the data due to the inherent time it takes for factors like global shocks or even market uncertainty to ripple through the economy and impact an investment as significant as FDI. To confidently interpret the data, statistical models are used to analyze linear time-series with a time-lag, such as a Granger causality test and cross-correlation methods. However, the two time-series graphs do follow a very similar pattern to each other. This tells us there is likely a relationship here, although further analysis is needed before a conclusion can be drawn.
 
 
-### Next, Canadian Restrictiveness
+### How restrictive is Canada with regard to FDI?
 
+Data accessible [here](https://www.oecd.org/investment/fdiindex.htm)
 Canadian Restrictiveness
-Canadian foreign economic policy is flexible and largely balanced. However, it is not without its faults – while flexible and balanced, Canada is ranked as one of the most restrictive countries to foreign investing - how does that make sense?
+Canadian foreign economic policy is flexible and largely balanced. However, it is not without its faults – while flexible and balanced, Canada is ranked as one of the most restrictive countries to foreign investing.
 
 OECD’s FDI Restrictiveness Index ranks countries by their acceptance of foreign investors, with a value of 1 indicating no foreign investors allowed to partake, and 0 indicating no investment restrictions whatsoever. Canada ranks number one among developed economies in overall restriction of FDI. This is surprisingly not in line with the premise of this post: if the government is so restrictive, why is FDI still flowing in in such significant quantities? The answer partially lies in the details.
 
 
 <img width="730" alt="image" src="https://user-images.githubusercontent.com/44441178/195230082-275cd877-da46-41ee-9e77-4f8c261ed1c2.png">
+
 
 ###### Highlighted Values in Red Indicate Restriction Coefficients Greater Than 0.1
 
