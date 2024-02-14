@@ -3,7 +3,7 @@ For this post let's stick to a topic I know quite well and dive into...
 
 #### A quick and dirty Tableau/Python analysis of my topic: Canada's dependency on Foreign Investment.
 
-To preface this post: I wanted to look at Canadian Foreign Direct Investment and build a story by connecting it to other datasets. Data sources are all linked in their respective section - with the base dataset (FDI data) accessible [here] (https://data.oecd.org/fdi/fdi-flows.htm). The first step of any data analysis pipeline is to gather data from reputable sources (in this case the OECD, Statistics Canada, and the Chicago Board of Exchange), then clean the data using your method of choice (in this case using Python) _before_ engaging in any analysis. This post will be less of a tutorial and more of a short blog guided by insights gathered through Tableau. This is a very different style than the rest of my works, but I hope you enjoy it nonetheless!
+To preface this post: I wanted to look at Canadian Foreign Direct Investment and build a story by connecting it to other datasets. Data sources are all linked in their respective section - with the base dataset (FDI data) accessible [here](https://data.oecd.org/fdi/fdi-flows.htm). The first step of any data analysis pipeline is to gather data from reputable sources (in this case the OECD, Statistics Canada, and the Chicago Board of Exchange), then clean the data using your method of choice (in this case using Python) _before_ engaging in any analysis. This post will be less of a tutorial and more of a short blog guided by insights gathered through Tableau. This is a very different style than the rest of my works, but I hope you enjoy it nonetheless!
 
 ##### Without further ado...
 
@@ -28,7 +28,7 @@ Obviously, from the above visualization it's clear Canada is one of the most FDI
 
 ### Well, for starters: Tertiary Education
 
-Data accessible [here](https://data.oecd.org/eduatt/population-with-tertiary-education.htm)
+##### Data accessible [here](https://data.oecd.org/eduatt/population-with-tertiary-education.htm)
 
 While many global economies share Canada's desire to accept as much FDI as possible and thereby grow their economy, the Canadian economy is in a unique position as one of the most coveted destinations for foreign enterprises.
 
@@ -48,7 +48,7 @@ With such a significant discrepancy in tertiary education between Canada and the
 
 ### Where is the FDI coming from?
 
-Data Accessible [here](https://www150.statcan.gc.ca/n1/daily-quotidien/230428/dq230428b-eng.htm)
+##### Data Accessible [here](https://www150.statcan.gc.ca/n1/daily-quotidien/230428/dq230428b-eng.htm)
 
 Limiting FDI inflow to stable economies and trade allies reduces the risk of sudden divestment. Divestment is when a foreign investor decides to pull their capital back to their home country. This is very dangerous for the Canadian economy because as we saw, there is a relatively heavy dependence on FDI (relative to the rest of the G7). If too many investors divest at the same time, capital investments will dry up simultaneously in Canada. To Canadian lawmakers’ credit, this is largely the case in Canada. The United Kingdom, Luxembourg, the Netherlands, and the United States together accounted for more than 70% of foreign investment into Canada in 2021, with the U.S. - Canada’s closest ally and trade partner - making up almost 50% of the total amount alone (see Figure 4). These are countries favoured by Canada for FDI due to sharing a rich history of bilateral relations.
 
@@ -74,7 +74,7 @@ It is difficult to see a relationship in this figure without using statistical a
 
 ### How restrictive is Canada with regard to FDI?
 
-Data accessible [here](https://www.oecd.org/investment/fdiindex.htm)
+##### Data accessible [here](https://www.oecd.org/investment/fdiindex.htm)
 Canadian Restrictiveness
 Canadian foreign economic policy is flexible and largely balanced. However, it is not without its faults – while flexible and balanced, Canada is ranked as one of the most restrictive countries to foreign investing.
 
@@ -91,10 +91,9 @@ Canada’s restriction coefficient is evidently high relative to its peers. The 
 
 Interesting. 
 
-There are many more factors, such as taxes and foreign policy, that make Canada an attractive destination. However, this blog was never meant to be in-depth on my thesis topic, but I figured for my first real post ever (not counting the prologue) I should write about something I'm passionate about. This was a short post - but don't get used to it, I'm just learning how to do this. My next post might be less nerdy, but the post after that might be more nerdy - or maybe they'll get progressively nerdier. **It all averages out in the end.**
-
+There are many more factors, such as taxes and foreign policy, that make Canada an attractive destination. However, this blog was never meant to be in-depth the topic, but I figured I should write about something I'm passionate about. This was a short post - but don't get used to it.
 
 Signing off,
 
-Khalil (TheStatsGuy)
+Khalil 
 
