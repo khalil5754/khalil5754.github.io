@@ -1,4 +1,4 @@
-## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
+![image](https://github.com/khalil5754/khalil5754.github.io/assets/44441178/daf687f9-0434-4643-9946-646f5bfa3aed)## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
 For this post let's stick to a topic I know quite well and dive into...
 
 #### A quick and dirty Tableau analysis of my topic: Canada's dependency on Foreign Investment.
@@ -37,14 +37,20 @@ Intuitively, attracting FMNEs begins with an educated populace because enterpris
 
 <img width="678" alt="image" src="https://user-images.githubusercontent.com/44441178/195230123-e5bc7bb1-6ce4-4b99-aa4b-9ba2199f54f8.png">
 
+###### Figure 2: Tertiary Education as a Percentage of Population
+
 With such a significant discrepancy in tertiary education between Canada and the second-place United States, a clearer picture begins to form as to why the seemingly small Canadian economy can go pound-for-pound (or dollar-for-dollar) with economic heavy hitters like the United Kingdom and the United States with regard to FDI intake. Canada places a heavy emphasis on the education of its citizens and reaps the rewards a highly educated populace offers its constituents.
 
 
 ### Where is the FDI coming from?
 
+Data Accessible [here](https://www150.statcan.gc.ca/n1/daily-quotidien/230428/dq230428b-eng.htm)
+
 Limiting FDI inflow to stable economies and trade allies reduces the risk of sudden divestment. Divestment is when a foreign investor decides to pull their capital back to their home country. This is very dangerous for the Canadian economy because as we saw, there is a relatively heavy dependence on FDI (relative to the rest of the G7). If too many investors divest at the same time, capital investments will dry up simultaneously in Canada. To Canadian lawmakers’ credit, this is largely the case in Canada. The United Kingdom, Luxembourg, the Netherlands, and the United States together accounted for more than 70% of foreign investment into Canada in 2021, with the U.S. - Canada’s closest ally and trade partner - making up almost 50% of the total amount alone (see Figure 4). These are countries favoured by Canada for FDI due to sharing a rich history of bilateral relations.
 
 <img width="385" alt="image" src="https://github.com/khalil5754/khalil5754.github.io/assets/44441178/d6a98ab9-7b14-48e0-92f6-c4f1bf8758db">
+
+###### Figure 3: Composition of Canadian FDI inflow by country.
 
 
 ### Canadian FDI and the VIX index - is there an obvious relationship?
