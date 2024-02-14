@@ -1,4 +1,4 @@
-![image](https://github.com/khalil5754/khalil5754.github.io/assets/44441178/daf687f9-0434-4643-9946-646f5bfa3aed)## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
+## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
 For this post let's stick to a topic I know quite well and dive into...
 
 #### A quick and dirty Tableau analysis of my topic: Canada's dependency on Foreign Investment.
@@ -13,10 +13,9 @@ To preface this post: the first step of any data analysis pipeline is to gather 
 
 Foreign Direct Investment is a significant driver of the Canadian economy. In 2022, among the G7 nations, Canada had the highest proportion of inward FDI flow as a percentage of GDP (See Figure 1). This ratio highlights the level of foreign investments in relation to the overall economic output of the country, showcasing the role of foreign capital in fueling economic activities. The Canadian government’s use of FDI cannot be understated, with industries and cities seeing tremendous growth as a result of generous policy geared toward promoting and maintaining FDI. Some research regarding FDI “heavy-hitters” rank global economies based on total inward FDI flow, or total stock. This is an inaccurate empirical measurement and statistically a poor method of analyzing economies which differ so significantly in scale. Canada, for example, has a GDP 1/20th the size of its southern neighbour, the United States, and a population just 11.5% the size. A more appropriate method of comparison is the percentage of its total GDP that an economy takes in as inward FDI flow. Of the developed world, the only country which allocates a higher percentage of its GDP to FDI than Canada is the United Kingdom.
 
-FDI inward flow in Canada equated to just under 2.5% of the country’s 2022 GDP, an important concern arises regarding whether a high GDP to FDI ratio exposes the host economy to increased economic vulnerability. Sharp changes in FDI inward flow (from henceforth referred to as FDI inflow) will have an impact on the Canadian economic landscape and could increase Canada’s economic vulnerability. We will explore this in further detail when we examine the VIX index.
+FDI inward flow in Canada equated to just over 80% of the country’s 2022 GDP, an important concern arises regarding whether a high GDP to FDI ratio exposes the host economy to increased economic vulnerability. Sharp changes in FDI inward flow (from henceforth referred to as FDI inflow) will have an impact on the Canadian economic landscape and could increase Canada’s economic vulnerability. We will explore this in further detail when we examine the VIX index.
 
-
-<img width="326" alt="image" src="https://github.com/khalil5754/khalil5754.github.io/assets/44441178/28de2ae0-f912-4b5b-88b0-d20cf2f5fb15">
+<img width="1499" alt="Screenshot 2024-02-14 at 11 56 15 AM" src="https://github.com/khalil5754/khalil5754.github.io/assets/44441178/6effdf37-02ed-4728-96ab-0f12962599f6">
 
 ###### Figure 1: FDI inward flow as a percentage of total GDP in 2022
 
