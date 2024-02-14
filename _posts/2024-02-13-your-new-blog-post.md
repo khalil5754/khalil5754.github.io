@@ -1,13 +1,13 @@
 ## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
 For this post let's stick to a topic I know quite well and dive into...
 
-#### A quick and dirty Tableau/Python analysis of my topic: Canada's dependency on Foreign Investment.
+#### A Tableau/Python analysis of my topic: Canada's dependency on Foreign Investment.
 
 To preface this post: I wanted to look at Canadian Foreign Direct Investment and build a story by connecting it to other datasets. Data sources are all linked in their respective section - with the base dataset (FDI data) accessible [here](https://data.oecd.org/fdi/fdi-flows.htm). The first step of any data analysis pipeline is to gather data from reputable sources (in this case the OECD, Statistics Canada, and the Chicago Board of Exchange), then clean the data using your method of choice (in this case using Python) _before_ engaging in any analysis. This post will be less of a tutorial and more of a short blog guided by insights gathered through Tableau. This is a very different style than the rest of my works, but I hope you enjoy it nonetheless!
 
 ##### Without further ado...
 
-### How does Canadian Foreign Direct Investment (FDI) compare to the rest of the G7?
+### How does Canadian Foreign Direct Investment (FDI) compare to the rest of the G7 countries?
 
 
 Foreign Direct Investment is a significant driver of the Canadian economy. In 2022, among the G7 nations, Canada had the second-highest proportion of inward FDI flow as a percentage of GDP (See Figure 1). This ratio highlights the level of foreign investments in relation to the overall economic output of the country, showcasing the role of foreign capital in fueling economic activities. The Canadian government’s use of FDI cannot be understated, with industries and cities seeing tremendous growth as a result of generous policy geared toward promoting and maintaining FDI. Some research regarding FDI “heavy-hitters” rank global economies based on total inward FDI flow, or total stock. This is an inaccurate empirical measurement and statistically a poor method of analyzing economies which differ so significantly in scale. Canada, for example, has a GDP 1/20th the size of its southern neighbour, the United States, and a population just 11.5% the size. A more appropriate method of comparison is the percentage of its total GDP that an economy takes in as inward FDI flow. Of the developed world, the only country which allocates a higher percentage of its GDP to FDI than Canada is the United Kingdom.
