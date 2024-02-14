@@ -75,7 +75,7 @@ It is difficult to see a relationship in this figure without using statistical a
 ### How restrictive is Canada with regard to FDI?
 
 ##### Data accessible [here](https://www.oecd.org/investment/fdiindex.htm)
-Canadian Restrictiveness
+
 Canadian foreign economic policy is flexible and largely balanced. However, it is not without its faults – while flexible and balanced, Canada is ranked as one of the most restrictive countries to foreign investing.
 
 OECD’s FDI Restrictiveness Index ranks countries by their acceptance of foreign investors, with a value of 1 indicating no foreign investors allowed to partake, and 0 indicating no investment restrictions whatsoever. Canada ranks number one among developed economies in overall restriction of FDI. This is surprisingly not in line with the premise of this post: if the government is so restrictive, why is FDI still flowing in in such significant quantities? The answer partially lies in the details.
