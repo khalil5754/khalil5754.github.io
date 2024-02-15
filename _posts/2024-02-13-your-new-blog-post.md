@@ -1,5 +1,6 @@
 ## Using Tableau Visualizations to Analyze Canadian Foreign Direct Investment
-For this post let's stick to a topic I know quite well and dive into...
+
+#### For this post let's stick to a topic I know quite well and dive into...
 
 #### A Tableau/Python analysis of my topic: Canadian Foreign Direct Investment.
 
