@@ -4,8 +4,7 @@
 
 #### A Tableau/Python analysis of my topic: Canadian Foreign Direct Investment.
 
-
-![image](https://github.com/khalil5754/khalil5754.github.io/assets/44441178/913def23-58b6-47ab-9ec4-6b359c51b935)
+![image](https://github.com/khalil5754/khalil5754.github.io/assets/44441178/c23050be-881e-4744-9ae7-4736f6234ec6)
 
 
 To preface this post: My dataset comes from the OECD, or the Organization for Economic Co-operation and Development. The organization works with governments around the world to maintain and improve a centralized economic/developmental database. I wanted to look at Canadian Foreign Direct Investment (FDI) and build a story by connecting the OECD FDI dataset to other datasets. Data sources are all linked in their respective section - with the base dataset (FDI data) accessible [here](https://data.oecd.org/fdi/fdi-flows.htm). The FDI dataset is very simple, with just two columns: the countries, and the FDI inflow (can be in USD or % of GDP). This made it difficult to answer five questions with - especially questions I was interested in such as where FDI into Canada is coming from. That is why I will be using a few supportive datasets from equally reputale organizations. The first step of any data analysis pipeline is to gather data from reputable sources (in this case the OECD, Statistics Canada, and the Chicago Board Options Exchange), then clean the data using your method of choice (in this case using Python) _before_ engaging in any analysis. This post will be less of a tutorial and more of a short blog guided by insights gathered through Tableau. This is a very different style than the rest of my works, but I hope you enjoy it nonetheless!
