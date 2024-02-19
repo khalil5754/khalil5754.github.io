@@ -1,5 +1,5 @@
 _Welcome_...
-## If you're reading this it means I reached another human! (at least, hopefully you're a human) \
+## If you're reading this it means I reached another human! (at least, hopefully you're a human)
 
 ## Let me introduce myself:
 
