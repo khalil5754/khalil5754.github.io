@@ -11,7 +11,7 @@ Hello! I'm Khalil, an AWS Certified Solutions Architect Associate and Data Scien
 
 I'll likely add progressively more in-depth posts as time goes on and I learn more, and of course I'll be writing a metric ton of code for this project because at the end of the day, that's what I love the most. Thanks for checking this out!
 
-<img src="[url_to_image_here](https://github.com/khalil5754/khalil5754.github.io/assets/44441178/4d17f5b0-0b8f-480a-a98a-c95d2ae36588)" width="500" height="700">
+<img src="https://github.com/khalil5754/khalil5754.github.io/assets/44441178/4d17f5b0-0b8f-480a-a98a-c95d2ae36588" width="560" height="680">
 
 
 Here is my CV:
